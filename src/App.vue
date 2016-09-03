@@ -2,8 +2,8 @@
   <div id="app">
     <ui-head></ui-head>
     <router-view></router-view>
-    <loading></loading>
-    <tip></tip>
+    <!-- <loading></loading>
+    <tip></tip> -->
   </div>
 </template>
 

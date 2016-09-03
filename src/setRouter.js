@@ -1,19 +1,19 @@
 export function setRouter (router) {
   router.map({
-    '/index/:page': {
-      name: 'index',
-      title: '全部',
-      component: (resolve) => require(['./components/main/index.vue'], resolve)
+    '/index': {
+      name: 'competiton list',
+      title: '比赛列表',
+      component: (resolve) => require(['./components/competiton/competitonList.vue'], resolve)
     },
-    '/login': {
-      name: 'index',
-      title: '全部',
-      component: (resolve) => require(['./components/login/login.vue'], resolve)
+    '/activity': {
+      name: 'activity list',
+      title: '活动列表',
+      component: (resolve) => require(['./components/activity/activityList.vue'], resolve)
     }
   })
 
   router.redirect({
-    '/': '/index/1'
+    '/': '/index'
   })
   /**
    * fix ios title刷新不了的bug

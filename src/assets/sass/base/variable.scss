@@ -5,6 +5,7 @@ $border-b:              -webkit-gradient(linear, left top, left bottom, color-st
 $border-l:              -webkit-gradient(linear, right top, left top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor));
 $border-r:              -webkit-gradient(linear, left top, right top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, $bordercolor));
 /* background */
+$public-bg:             #333333;
 $stable-bg:             #f8f8f8;
 $default-bg:            #fff;
 $positive-bg:           #18b4ed;
@@ -13,6 +14,7 @@ $mask-bg:               rgba(0,0,0,.4);
 $input-wrap-bg:         #ebeced;
 /* txt - color */
 $txt-default:           #000;
+$txt-white:             #ffffff;
 $txt-info:              #777;
 $txt-muted:             #bbb;
 $txt-warning:           #ff4222;
@@ -26,33 +28,26 @@ $line-height-txt:       0.32rem; /* 24px */
 $line-height-bar:       0.5866666666666667rem; /* 44px */
 $txt-padding-top:       0.13333333333333333rem; /* 10px */
 $txt-padding-bottom:    0.13333333333333333rem; /* 10px */
-/* title - font-size */
-$font-size-base:        14px; /* 16px */
-$font-size-title:       16px; /* 16px */
-$font-size-h1:          18px; /* 18px */
-$font-size-title-lg:    17px; /* 17px */
-$font-size-info:        16px; /* 16px */
-$font-size-sub:         14px; /* 14px */
-$font-size-tips:        12px; /* 12px */
 /* wrap */
-$wrap-padding:          15px; /* 15px */
-$wrap-padding-s:        10px; /* 10px */
+$wrap-padding:          0.2rem; /* 15px */
+$wrap-padding-s:        0.13333333333333333rem; /* 10px */
 
-$wrap-link-padding:     30px; /* 30px */
-$wrap-link-padding-s:   25px; /* 25px */
+$wrap-link-padding:     0.4rem; /* 30px */
+$wrap-link-padding-s:   0.3333333333333333rem; /* 25px */
 
-$border-radius-base:    0.05333333333333334rem; /* 4px */
-$border-radius-lg:      0.10666666666666667rem; /* 8px */
+$border-radius-base:    0.10666666666666667rem; /* 8px */
+$border-radius-lg:     0.18666666666666668rem; /* 12px */
 $border-radius-max:     2.6666666666666665rem; /* 200px */
 $border-radius-full:    100%;
 /* active */
-$active-bg:             #e5e6e7;
+$active-bg:             #fd5a09;
 $active-opacity:        .5;
 /* avatar */
 $avatar-width:          0.6666666666666666rem; /* 50px */
 $avatar-width-lg:       0.9333333333333333rem; /* 70px */
 $avatar-width-s:        0.5333333333333333rem; /* 40px */
 $avatar-width-tiled:    0.4rem; /* 30px */
+$avatar-radius:       2.6666666666666665rem; /* 200px */
 /* dot */
 $reddot-bg:             #f74c31;
 $reddot-bg-muted:       #b6cae0;

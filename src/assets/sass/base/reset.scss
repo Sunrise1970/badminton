@@ -42,7 +42,6 @@ button {
 body {
     font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;;
     line-height: $line-height-base;
-    font-size: $font-size-base;
     color: $txt-default;
     background-color: $stable-bg;
     -webkit-user-select: none;
@@ -50,7 +49,9 @@ body {
     -webkit-tap-highlight-color: transparent;
     outline: 0;
 }
-
+body {
+  @include font(12px);
+}
 h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
     font-weight: normal;
@@ -113,4 +114,7 @@ a{
 
 em,i {
     font-style: normal;
+}
+.iconfont {
+  @include font(16px);
 }

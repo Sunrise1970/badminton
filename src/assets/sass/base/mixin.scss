@@ -67,15 +67,15 @@
 @mixin arrowlink{
     @include icon;
     color: #c7c7c7;
-    content: $icon-arrow;
+    content: '\e657';
     position: absolute;
-    right: $wrap-padding;
+    right: 0;
     top: 50%;
     margin-top: -0.29333333333333333rem;
     margin-right: -0.13333333333333333rem;
-    @media (max-width: 320px) {
-        right: $wrap-padding-s;
-    }
+    // @media (max-width: 320px) {
+    //     right: $wrap-padding-s;
+    // }
 }
 @mixin nowrap{
     max-width: 100%;

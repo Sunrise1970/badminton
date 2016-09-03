@@ -1,0 +1,17 @@
+.ui-avatar-s {
+    width: $avatar-width-s;
+    height: $avatar-width-s;
+    display: inline-block;
+    -webkit-border-radius: $avatar-radius;
+    overflow: hidden;
+    vertical-align: sub;
+    span {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -webkit-border-radius: $avatar-radius;
+    }
+}

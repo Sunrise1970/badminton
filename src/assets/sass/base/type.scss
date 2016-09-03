@@ -11,21 +11,6 @@ em{
 /**
  * 文字
  */
-h1{
-    @include font($font-size-h1);
-}
-h2{
-    @include font($font-size-title-lg);
-}
-h3,h4{
-    @include font($font-size-title);
-}
-h5,.ui-txt-sub{
-    @include font($font-size-sub);
-}
-h6,.ui-txt-tips{
-    @include font($font-size-tips);
-}
 .ui-txt-default{
     color: $txt-default;
 }
@@ -62,4 +47,8 @@ h6,.ui-txt-tips{
     overflow:hidden;
     width:100%;
     height:0;
+}
+
+.active {
+  background-color: $active-bg;
 }
