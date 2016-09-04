@@ -1,8 +1,10 @@
 <template>
-    <h2>login</h2>
+  <ui-head></ui-head>
+  <h2>login</h2>
 </template>
 
 <script>
+import uiHead from '../common/head'
 export default {
   data: function () {
     return {
@@ -12,7 +14,9 @@ export default {
   ready: function () {},
   attached: function () {},
   methods: {},
-  components: {}
+  components: {
+    uiHead
+  }
 }
 </script>
 

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <ui-head></ui-head>
     <router-view></router-view>
     <!-- <loading></loading>
     <tip></tip> -->
@@ -8,7 +7,6 @@
 </template>
 
 <script>
-import uiHead from './components/common/head'
 import Loading from './components/common/loading'
 import Tip from './components/common/tip'
 import store from './vuex/store'
@@ -23,7 +21,6 @@ export default {
   },
   store,
   components: {
-    uiHead,
     Loading,
     Tip
   },

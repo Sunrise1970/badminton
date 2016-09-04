@@ -1,8 +1,6 @@
 /* 箭头链接 */
 .ui-arrowlink {
     position: relative;
-    height: 1.3333333333333333rem;
-    line-height: 1.3333333333333333rem;
     &:before {
         @include arrowlink;
     }

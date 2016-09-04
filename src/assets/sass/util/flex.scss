@@ -1,4 +1,15 @@
+.ui-flex {
+  display: flex;
+}
+.ui-flex-1 {
+  flex: 1;
+}
 .ui-flex-between {
   display: flex;
   justify-content: space-between;
+}
+.ui-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

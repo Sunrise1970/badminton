@@ -5,6 +5,11 @@ export function setRouter (router) {
       title: '比赛列表',
       component: (resolve) => require(['./components/competiton/competitonList.vue'], resolve)
     },
+    '/competitonDetail': {
+      name: 'competiton detail',
+      title: '比赛详情',
+      component: (resolve) => require(['./components/competiton/competitonDetail.vue'], resolve)
+    },
     '/activity': {
       name: 'activity list',
       title: '活动列表',

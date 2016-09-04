@@ -1,25 +1,51 @@
-.ui-whitespace{
+.ui-whitespace-m{
     margin-left: $wrap-padding;
     margin-right: $wrap-padding;
     box-sizing: border-box;
 }
-.ui-whitespace-left{
+.ui-whitespace-m-left{
     margin-left: $wrap-padding;
     box-sizing: border-box;
 }
-.ui-whitespace-right{
+.ui-whitespace-m-right{
     margin-right: $wrap-padding;
     box-sizing: border-box;
 }
 @media (max-width: 320px) {
-    .ui-whitespace{
+    .ui-whitespace-m{
         margin-left: $wrap-padding-s;
         margin-right: $wrap-padding-s;
     }
-    .ui-whitespace-left{
+    .ui-whitespace-m-left{
         margin-left: $wrap-padding-s;
     }
-    .ui-whitespace-right{
+    .ui-whitespace-m-right{
         margin-right: $wrap-padding-s;
+    }
+}
+
+.ui-whitespace-p{
+    padding-left: $wrap-padding;
+    padding-right: $wrap-padding;
+    box-sizing: border-box;
+}
+.ui-whitespace-p-left{
+    padding-left: $wrap-padding;
+    box-sizing: border-box;
+}
+.ui-whitespace-p-right{
+    padding-right: $wrap-padding;
+    box-sizing: border-box;
+}
+@media (max-width: 320px) {
+    .ui-whitespace-p{
+        padding-left: $wrap-padding-s;
+        padding-right: $wrap-padding-s;
+    }
+    .ui-whitespace-p-left{
+        padding-left: $wrap-padding-s;
+    }
+    .ui-whitespace-p-right{
+        padding-right: $wrap-padding-s;
     }
 }

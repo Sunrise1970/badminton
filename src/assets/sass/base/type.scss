@@ -7,7 +7,35 @@ em{
 ::-webkit-input-placeholder {
     color: $txt-muted;
 }
-
+.ui-common-height {
+  height: 0.9333333333333333rem;
+}
+.ui-common-mg-tb {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+.ui-common-mg-b {
+  margin-bottom: 0.2rem;
+}
+.ui-common-pd-tb {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.ui-text-center {
+  text-align: center;
+}
+.ui-bg-white {
+  background-color: white;
+}
+.ui-font-14 {
+  @include font(14px);
+}
+.ui-width-80 {
+  width: 1.0666666666666667rem;
+}
+.ui-display-b {
+  display: block;
+}
 /**
  * 文字
  */
@@ -47,6 +75,18 @@ em{
     overflow:hidden;
     width:100%;
     height:0;
+}
+.ui-icon-return {
+    position: absolute;
+    left: 0;
+    width: 1.0666666666666667rem;
+    color: #fff;
+    &:before {
+      content: "\e63b";
+    }
+}
+.ui-text-indent {
+  text-indent: 2em;
 }
 
 .active {
