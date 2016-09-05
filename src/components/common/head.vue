@@ -1,16 +1,21 @@
 <template>
-  <div class="head" v-if="rebackHead">
-    <a v-link="{ path: '/index', activeClass: 'active-border' }">比赛</a>
-    <a v-link="{ path: '/activity', activeClass: 'active-border' }">活动</a>
+  <div class="head ui-nav-box" v-if="rebackHead">
+    <a v-link="{ path: '/index', activeClass: 'active-border' }">活动</a>
+    <a v-link="{ path: '/competitonList', activeClass: 'active-border' }">比赛</a>
   </div>
-  <div class="reback-head clearfix" v-if="!rebackHead">
-    <i @click="rebackHandler" class="iconfont ui-icon-return"></i>
-    活动
+  <div class="reback-head clearfix ui-nav-box" v-if="!rebackHead">
+    <i @click="rebackHandler" class="iconfont ui-icon-return"></i> {{title}}
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    title: {
+      type: String,
+      default: ''
+    }
+  },
   data: function () {
     return {
       rebackHead: false
@@ -19,7 +24,7 @@ export default {
   computed: {},
   ready: function () {
     let comeFrom = this.$route.path
-    if (/index/.test(comeFrom) || /activity/.test(comeFrom)) {
+    if (/index/.test(comeFrom) || /competitonList/.test(comeFrom) || /result/.test(comeFrom)) {
       this.rebackHead = true
     }
   },
@@ -36,7 +41,14 @@ export default {
 <style lang="scss">
 @import "../../assets/sass/common";
   @mixin common {
-    background-color: $public-bg;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+    transition: .3s linear;
+    -webkit-transition: .3s linear;
+    top: 0;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     padding-bottom: 0.05333333333333334rem;
     border-top: 2px solid #fff;
   }
@@ -46,10 +58,6 @@ export default {
     a {
       display: block;
       flex: 1;
-      height: 1.12rem;
-      text-align: center;
-      line-height: 1.12rem;
-      @include font(14px);
       color: $txt-white;
       &.active-border {
         border-bottom: 3px solid #ccc;
@@ -59,11 +67,5 @@ export default {
   }
   .reback-head {
     @include common;
-    text-align: center;
-    height: 1.12rem;
-    text-align: center;
-    line-height: 1.12rem;
-    color: #fff;
-    @include font(14px);
   }
 </style>

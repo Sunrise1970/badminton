@@ -1,112 +1,106 @@
 <template>
   <ui-head></ui-head>
-  <div class="competiton-list ui-whitespace-m">
-    <ul>
+  <div class="ui-common-box">
+    <div class="ui-flex competiton-nav ui-border-b">
+      <div class="ui-flex-1 ui-border-r ui-active-font-b" v-link="{ path: '/competitonList' }">报名</div>
+      <div class="ui-flex-1" v-link="{ path: '/competitonList/result' }">赛绩</div>
+    </div>
+    <div class="competiton-list ui-whitespace-m">
+    <ul class="clearfix">
       <li v-link="{ path: '/competitonDetail' }" class="ui-border-radius">
-        <club-intro></club-intro>
-        <div class="activity-intro ui-border-t clearfix">
-          <div class="ui-avatar-s">
-            <span style="background-image:url(http://placehold.it/80x80)"></span>
+        <div class="ui-common-pd">
+          <div class="ui-flex">
+            <div class="competiton-tag ui-tag">
+              大型赛
+            </div>
+            <div class="ui-flex-1 ui-border-r ui-text-center">
+              11月15日 09:00
+            </div>
+            <div class="ui-flex-1 ui-text-center">
+              石溪羽毛球馆
+            </div>
           </div>
-          <span>&emsp;组织者&emsp;教练&emsp;</span>
-          <span class="ui-tag ui-border-radius active-time">20:00</span>
-          <div class="activity-txt ui-border-radius">
-            【羽毛球】9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
-          </div>
-          <div class="ui-flex-between">
-            <span class="ui-tag-sm ui-border-radius">AA</span>
-            <p>
-              16/18&emsp;<span class="ui-txt-highlight">报名中</span>
-            </p>
-          </div>
-          <div class="ui-border-t active-user">
-            <span class="iconfont icon-dingdanruzhurenmingzi"></span>&emsp;
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
+          <h2 class="ui-font-14 ui-common-pd-tb" style="vertical-align: middle">铂涛互联网羽毛球比赛</h2>
+          <section class="ui-placehold-img">
+            <span style="background-image:url(http://placeholder.qiniudn.com/640x200)"></span>
+          </section>
+          <div class="ui-flex-between ui-common-pd-t">
+            <div class="ui-vertical-middle">
+              <div class="ui-avatar-s">
+                <span style="background-image:url(http://placehold.it/80x80)"></span>
+              </div> 铂涛信息技术（广州）公司
             </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
+            <div>
+              88/无限制&emsp;<span class="ui-txt-highlight">报名中</span>
             </div>
           </div>
         </div>
       </li>
       <li v-link="{ path: '/competitonDetail' }" class="ui-border-radius">
-        <club-intro></club-intro>
-        <div class="activity-intro ui-border-t clearfix">
-          <div class="ui-avatar-s">
-            <span style="background-image:url(http://placehold.it/80x80)"></span>
+        <div class="ui-common-pd">
+          <div class="ui-flex">
+            <div class="competiton-tag ui-tag">
+              大型赛
+            </div>
+            <div class="ui-flex-1 ui-border-r ui-text-center">
+              11月15日 09:00
+            </div>
+            <div class="ui-flex-1 ui-text-center">
+              石溪羽毛球馆
+            </div>
           </div>
-          <span>&emsp;组织者&emsp;教练&emsp;</span>
-          <span class="ui-tag ui-border-radius active-time">20:00</span>
-          <div class="activity-txt ui-border-radius">
-            【羽毛球】9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
+          <h2 class="ui-font-14 ui-common-pd-tb" style="vertical-align: middle">铂涛互联网羽毛球比赛</h2>
+          <section class="ui-placehold-img">
+            <span style="background-image:url(http://placeholder.qiniudn.com/640x200)"></span>
+          </section>
+          <div class="ui-flex-between ui-common-pd-t">
+            <div class="ui-vertical-middle">
+              <div class="ui-avatar-s">
+                <span style="background-image:url(http://placehold.it/80x80)"></span>
+              </div> 铂涛信息技术（广州）公司
+            </div>
+            <div>
+              88/无限制&emsp;<span class="ui-txt-highlight">报名中</span>
+            </div>
           </div>
-          <div class="ui-flex-between">
-            <span class="ui-tag-sm ui-border-radius">AA</span>
-            <p>
-              16/18&emsp;<span class="ui-txt-highlight">报名中</span>
-            </p>
+        </div>
+      </li>
+      <li v-link="{ path: '/competitonDetail' }" class="ui-border-radius">
+        <div class="ui-common-pd">
+          <div class="ui-flex">
+            <div class="competiton-tag ui-tag">
+              大型赛
+            </div>
+            <div class="ui-flex-1 ui-border-r ui-text-center">
+              11月15日 09:00
+            </div>
+            <div class="ui-flex-1 ui-text-center">
+              石溪羽毛球馆
+            </div>
           </div>
-          <div class="ui-border-t active-user">
-            <span class="iconfont icon-dingdanruzhurenmingzi"></span>&emsp;
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
+          <h2 class="ui-font-14 ui-common-pd-tb" style="vertical-align: middle">铂涛互联网羽毛球比赛</h2>
+          <section class="ui-placehold-img">
+            <span style="background-image:url(http://placeholder.qiniudn.com/640x200)"></span>
+          </section>
+          <div class="ui-flex-between ui-common-pd-t">
+            <div class="ui-vertical-middle">
+              <div class="ui-avatar-s">
+                <span style="background-image:url(http://placehold.it/80x80)"></span>
+              </div> 铂涛信息技术（广州）公司
             </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
-            </div>
-            <div class="ui-avatar-s">
-              <span style="background-image:url(http://placehold.it/80x80)"></span>
+            <div>
+              88/无限制&emsp;<span class="ui-txt-highlight">报名中</span>
             </div>
           </div>
         </div>
       </li>
     </ul>
   </div>
+  </div>
 </template>
 
 <script>
 import uiHead from '../common/head'
-import clubIntro from '../common/clubIntro'
 export default {
   data: function () {
     return {
@@ -117,38 +111,27 @@ export default {
   attached: function () {},
   methods: {},
   components: {
-    uiHead,
-    clubIntro
+    uiHead
   }
 }
 </script>
 
 <style lang="scss">
 @import "../../assets/sass/common";
+.competiton-nav {
+  height: 1.0666666666666667rem;
+  line-height: 1.0666666666666667rem;
+  text-align: center;
+}
 .competiton-list {
-  margin: 0.5333333333333333rem 0.26666666666666666rem;
   li {
     box-shadow:  0 1px 3px rgba(167,167,167,.4);
     margin-top: 0.4rem;
     padding: 0.13333333333333333rem 0.2rem;
     background-color: $default-bg;
-    .activity-intro {
-      padding-top: 0.26666666666666666rem;
-    }
-    .active-time {
-      float: right;
-    }
-    .activity-txt {
-      margin-top: 0.2rem;
-      margin-bottom: 0.13333333333333333rem;
-      padding: 0.13333333333333333rem;
-      background-color: #f7f7f7;
-      color: #333;
-    }
-    .active-user {
-      margin: 0.13333333333333333rem -0.2rem 0 -0.2rem;
-      padding: 0.13333333333333333rem 0.2rem 0 0.2rem;
-    }
   }
+}
+.competiton-tag {
+
 }
 </style>

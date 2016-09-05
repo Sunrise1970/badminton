@@ -7,6 +7,10 @@ em{
 ::-webkit-input-placeholder {
     color: $txt-muted;
 }
+.ui-common-box {
+  margin-top: 1.23rem;
+  margin-bottom: 1.12rem;
+}
 .ui-common-height {
   height: 0.9333333333333333rem;
 }
@@ -16,6 +20,12 @@ em{
 }
 .ui-common-mg-b {
   margin-bottom: 0.2rem;
+}
+.ui-common-pd {
+  padding: 0.2rem;
+}
+.ui-common-pd-t {
+  padding-top: 0.2rem;
 }
 .ui-common-pd-tb {
   padding-top: 0.2rem;
@@ -35,6 +45,37 @@ em{
 }
 .ui-display-b {
   display: block;
+}
+.ui-nav-box,.ui-btn-box{
+  width: 100%;
+  height: 1.12rem;
+  line-height: 1.12rem;
+  text-align: center;
+  background-color: $public-bg;
+  color: $txt-white;
+  @include font(14px);
+}
+.ui-vertical-middle {
+  vertical-align: middle
+}
+.ui-active-font-b {
+  color: $txt-highlight;
+  font-weight: bold;
+}
+.ui-info-head {
+  width: 1.6266666666666667rem;
+  height: 0.6666666666666666rem;
+  padding-top: 15px;
+  border-bottom: 2px solid $txt-highlight;
+  @include font(14px);
+}
+.ui-info-txt {
+  margin-top: 0.2rem;
+  margin-bottom: 0.13333333333333333rem;
+  padding: 0.13333333333333333rem;
+  background-color: #f7f7f7;
+  color: #333;
+  text-indent: 2em;
 }
 /**
  * 文字
