@@ -179,13 +179,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../assets/sass/common";
+@import "../../assets/sass/base/variable";
 .activity-list {
   li {
     box-shadow:  0 1px 3px rgba(167,167,167,.4);
     margin-top: 0.4rem;
     padding: 0.13333333333333333rem 0.2rem;
     background-color: $default-bg;
+    display: inline-block;
     .activity-intro {
       padding-top: 0.26666666666666666rem;
     }

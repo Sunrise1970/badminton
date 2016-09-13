@@ -19,7 +19,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../assets/sass/common";
 .club-intro {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;

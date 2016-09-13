@@ -1,6 +1,6 @@
 <template>
   <ui-head title="活动详情"></ui-head>
-  <div class="ui-common-box activity-detail">
+  <div class="ui-common-box ui-common-pd-t">
     <div class="ui-common-mg-b ui-common-pd-t ui-whitespace-p ui-bg-white">
       <p class="ui-text-indent ui-txt-highlight ui-font-14">
         【羽毛球】9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
@@ -90,7 +90,7 @@
         </p>
       </div>
     </div>
-    <div class="activity-order-btn ui-btn-box">
+    <div class="ui-bottom-btn ui-btn-box">
       活动进行中
     </div>
   </div>
@@ -117,16 +117,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../assets/sass/common";
-.activity-detail {
-  padding-top: 0.2rem;
-}
-.activity-order-btn {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  overflow: hidden;
-  z-index: 9999;
-  box-sizing: border-box;
-}
 </style>

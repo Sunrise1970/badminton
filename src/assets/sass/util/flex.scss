@@ -4,6 +4,21 @@
 .ui-flex-1 {
   flex: 1;
 }
+.ui-flex-2 {
+  flex: 2;
+}
+.ui-flex-3 {
+  flex: 3;
+}
+.ui-flex-4 {
+  flex: 4;
+}
+.ui-flex-5 {
+  flex: 5;
+}
+.ui-flex-6 {
+  flex: 6;
+}
 .ui-flex-between {
   display: flex;
   justify-content: space-between;
@@ -12,4 +27,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.ui-just-end {
+  justify-content: flex-end;
+}
+.ui-just-start {
+  justify-content:flex-start;
+}
+.ui-transform-y {
+  margin: 50% auto 0;
+  transform: translateY(-50%);
 }

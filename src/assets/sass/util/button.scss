@@ -1,19 +1,17 @@
 @mixin common {
     display: inline-block;
-    background-color: $public-bg;
-    color: $txt-white;
+    border: 1px solid $bordercolor;
     border-radius: 0.13333333333333333rem;
 }
-.ui-tag {
-  padding: 0.02666666666666667rem 0.13333333333333333rem;
+.ui-btn {
+  padding: 0.13333333333333333rem 0.4rem;
   @include common;
 }
-.ui-tag-sm {
+.ui-btn-sm {
   padding: 0 0.10666666666666667rem;
   @include common;
 }
-.ui-tag-big {
+.ui-btn-big {
   padding: 0.13333333333333333rem 0.4rem;
   @include common;
-  background-color: $public-bg;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="head ui-nav-box" v-if="rebackHead">
+  <div class="head ui-nav-box pdb" v-if="rebackHead">
     <a v-link="{ path: '/index', activeClass: 'active-border' }">活动</a>
     <a v-link="{ path: '/competitonList', activeClass: 'active-border' }">比赛</a>
   </div>
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../assets/sass/common";
+@import "../../assets/sass/base/variable";
   @mixin common {
     position: fixed;
     width: 100%;
@@ -49,8 +49,7 @@ export default {
     top: 0;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
-    padding-bottom: 0.05333333333333334rem;
-    border-top: 2px solid #fff;
+    // border-top: 2px solid #fff;
   }
   .head {
     display: flex;
@@ -60,12 +59,15 @@ export default {
       flex: 1;
       color: $txt-white;
       &.active-border {
-        border-bottom: 3px solid #ccc;
+        border-bottom: 2px solid #ccc;
       }
       background-size: 100%;
     }
   }
   .reback-head {
     @include common;
+  }
+  .pdb {
+    padding-bottom: 0.05333333333333334rem;
   }
 </style>

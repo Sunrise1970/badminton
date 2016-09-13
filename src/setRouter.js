@@ -15,20 +15,40 @@ export function setRouter (router) {
       title: '比赛列表',
       component: (resolve) => require(['./components/competiton/competitonList.vue'], resolve)
     },
-    '/competitonList/result': {
-      name: 'competiton result',
-      title: '比赛结果',
-      component: (resolve) => require(['./components/competiton/competitonResult.vue'], resolve)
-    },
     '/competitonDetail': {
       name: 'competiton detail',
       title: '比赛详情',
       component: (resolve) => require(['./components/competiton/competitonDetail.vue'], resolve)
     },
+    // '/competitonDetail/competitonIntro': {
+    //   name: 'competiton detail competitonIntro',
+    //   title: '比赛详情 说明',
+    //   component: (resolve) => require(['./components/competiton/components/competitonIntro.vue'], resolve)
+    // },
+    // '/competitonDetail/competitonMember': {
+    //   name: 'competiton detail competitonMember',
+    //   title: '比赛详情 人员',
+    //   component: (resolve) => require(['./components/competiton/components/competitonMember.vue'], resolve)
+    // },
+    // '/competitonDetail/competitonAgainst': {
+    //   name: 'competiton detail competitonAgainst',
+    //   title: '比赛详情 对阵',
+    //   component: (resolve) => require(['./components/competiton/components/competitonAgainst.vue'], resolve)
+    // },
+    // '/competitonDetail/competitonUser': {
+    //   name: 'competiton detail competitonUser',
+    //   title: '比赛详情 我的',
+    //   component: (resolve) => require(['./components/competiton/components/competitonUser.vue'], resolve)
+    // },
     '/competitonAttend': {
-      name: 'competiton attned',
-      title: '参加比赛',
+      name: 'competiton attend',
+      title: '比赛报名',
       component: (resolve) => require(['./components/competiton/competitonAttend.vue'], resolve)
+    },
+    '/competitonAgainstDetail': {
+      name: 'competiton attend',
+      title: '比赛报名',
+      component: (resolve) => require(['./components/competiton/components/competitonAgainstDetail.vue'], resolve)
     }
   })
 

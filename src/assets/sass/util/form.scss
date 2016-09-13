@@ -1,0 +1,18 @@
+.form-label-input {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  label {
+    position: absolute;
+    width: 1.6rem;
+    box-sizing: border-box;
+  }
+  input {
+    width: 100%;
+    padding-left: 1.6rem;
+    box-sizing: border-box;
+    border: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    color: $txt-muted;
+  }
+}

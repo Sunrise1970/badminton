@@ -8,8 +8,8 @@ em{
     color: $txt-muted;
 }
 .ui-common-box {
-  margin-top: 1.23rem;
-  margin-bottom: 1.12rem;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
 }
 .ui-common-height {
   height: 0.9333333333333333rem;
@@ -17,6 +17,9 @@ em{
 .ui-common-mg-tb {
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
+}
+.ui-common-mg-t {
+  margin-top: 0.2rem;
 }
 .ui-common-mg-b {
   margin-bottom: 0.2rem;
@@ -30,6 +33,12 @@ em{
 .ui-common-pd-tb {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
+}
+.ui-common-pd-l {
+  padding-left: 0.26666666666666666rem;
+}
+.ui-common-pd-r {
+  padding-right: 0.26666666666666666rem;
 }
 .ui-text-center {
   text-align: center;
@@ -63,11 +72,13 @@ em{
   font-weight: bold;
 }
 .ui-info-head {
-  width: 1.6266666666666667rem;
+  width: 2rem;
   height: 0.6666666666666666rem;
-  padding-top: 15px;
+  margin-top: 0.6666666666666666rem;
+  margin-bottom: 0.4rem;
   border-bottom: 2px solid $txt-highlight;
   @include font(14px);
+  text-align: center;
 }
 .ui-info-txt {
   margin-top: 0.2rem;
@@ -76,6 +87,9 @@ em{
   background-color: #f7f7f7;
   color: #333;
   text-indent: 2em;
+}
+.ui-common-mg-t0 {
+  margin: 0;
 }
 /**
  * 文字
@@ -101,6 +115,9 @@ em{
 /* 同em */
 .ui-txt-highlight{
     color: $txt-highlight;
+}
+.ui-btn-highlight{
+    color: $public-bg;
 }
 .ui-txt-justify{
     text-align: justify;
@@ -129,7 +146,42 @@ em{
 .ui-text-indent {
   text-indent: 2em;
 }
+.ui-bottom-btn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 9999;
+  box-sizing: border-box;
+}
 
 .active {
-  background-color: $active-bg;
+  background-color: $public-bg;
+  color: #fff;
+}
+.ui-txt-bg {
+    background-color: #f1f1f1;
+}
+.ui-border-dash-t {
+  border-top: dashed 1px #e0e0e0;
+}
+.ui-border-dash-r {
+  border-right: dashed 1px #e0e0e0;
+}
+.ui-border-dash-b {
+  border-bottom: dashed 1px #e0e0e0;
+}
+.ui-border-dash-l {
+  border-left: dashed 1px #e0e0e0;
+}
+.ui-win {
+  display: inline-block;
+  width: 0.8rem;
+  line-height: 0.8rem;
+  border-radius: 100%;
+  background-color: $txt-highlight;
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+  transform: rotate(15deg);
 }
