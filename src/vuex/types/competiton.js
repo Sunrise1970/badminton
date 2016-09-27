@@ -1,0 +1,5 @@
+// 获取比赛列表
+export const GET_COMPETITOM_LIST = 'GET_COMPETITOM_LIST'
+
+// 获取比赛列表失败
+export const GET_COMPETITOM_LIST_FAILURE = 'GET_COMPETITOM_LIST_FAILURE'

@@ -20,7 +20,8 @@ Vue.extend({
   components: { App }
 })
 const router = new VueRouter({
-  history: true,
+  // history: true,
+  hashbang: true,
   saveScrollPosition: true
 })
 setRouter(router)
@@ -28,4 +29,5 @@ setRouter(router)
 // Vue.http.interceptors.push(setResource) // ajax 拦截
 
 sync(store, router)
+// 启动路由将跟组件挂载在app
 router.start(App, 'app')

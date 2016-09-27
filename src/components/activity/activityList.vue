@@ -1,7 +1,7 @@
 <template>
   <ui-head></ui-head>
   <div class="ui-common-box activity-list ui-whitespace-m">
-    <ul class="clearfix">
+    <ul>
       <li v-link="{ path: '/activityDetail' }" class="ui-border-radius">
         <club-intro></club-intro>
         <div class="activity-intro ui-border-t">
@@ -9,10 +9,10 @@
             <div class="ui-avatar-s">
               <span style="background-image:url(http://placehold.it/80x80)"></span>
             </div>
-            <span>&emsp;组织者&emsp;教练&emsp;</span>
+            <span class="ui-dispaly-ib">&emsp;组织者&emsp;教练&emsp;</span>
             <span class="ui-tag active-time">20:00</span>
           </div>
-          <div class="ui-info-txt ui-border-radius">
+          <div class="ui-info-txt ui-border-radius ui-dispaly-ib">
             【羽毛球】9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
           </div>
           <div class="ui-flex-between">
@@ -60,10 +60,10 @@
             <div class="ui-avatar-s">
               <span style="background-image:url(http://placehold.it/80x80)"></span>
             </div>
-            <span>&emsp;组织者&emsp;教练&emsp;</span>
+            <span class="ui-dispaly-ib">&emsp;组织者&emsp;教练&emsp;</span>
             <span class="ui-tag active-time">20:00</span>
           </div>
-          <div class="ui-info-txt ui-border-radius">
+          <div class="ui-info-txt ui-border-radius ui-dispaly-ib">
             【羽毛球】9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
           </div>
           <div class="ui-flex-between">
@@ -111,10 +111,10 @@
             <div class="ui-avatar-s">
               <span style="background-image:url(http://placehold.it/80x80)"></span>
             </div>
-            <span>&emsp;组织者&emsp;教练&emsp;</span>
+            <span class="ui-dispaly-ib">&emsp;组织者&emsp;教练&emsp;</span>
             <span class="ui-tag active-time">20:00</span>
           </div>
-          <div class="ui-info-txt ui-border-radius">
+          <div class="ui-info-txt ui-border-radius ui-dispaly-ib">
             【羽毛球】9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
           </div>
           <div class="ui-flex-between">
@@ -162,7 +162,14 @@
 <script>
 import uiHead from '../common/head'
 import clubIntro from '../common/clubIntro'
+import { setActivityList } from '../../vuex/actions/activity'
+
 export default {
+  vuex: {
+    actions: {
+      setActivityList
+    }
+  },
   data: function () {
     return {
     }
@@ -174,6 +181,13 @@ export default {
   components: {
     uiHead,
     clubIntro
+  },
+  route: {
+    data () {
+      this.setActivityList()
+          .then((res) => console.log(res))
+          .catch((e) => console.log(e))
+    }
   }
 }
 </script>
@@ -186,7 +200,6 @@ export default {
     margin-top: 0.4rem;
     padding: 0.13333333333333333rem 0.2rem;
     background-color: $default-bg;
-    display: inline-block;
     .activity-intro {
       padding-top: 0.26666666666666666rem;
     }

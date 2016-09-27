@@ -2,8 +2,8 @@
   <div>
     <div class="ui-common-mg-b ui-common-pd-t ui-whitespace-p">
       <div class="ui-font-14">
-        <!-- <em>【报名ing...】</em>9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！ -->
-        <em>【比赛ing...】</em>9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
+        <em>【报名ing...】</em>9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
+        <!-- <em>【比赛ing...】</em>9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！ -->
       </div>
       <div class="ui-flex-between ui-common-pd-tb ui-border-b">
         <div class="ui-txt-info ui-common-pd-l">开始时间</div>
@@ -38,12 +38,12 @@
         无限制报名无限制报名无限制报名无限制报名无限制报名无限制报名无限制报名
       </p>
     </div>
-    <!-- <div class="ui-bottom-btn ui-btn-box" v-link="{ path: '/competitonAttend' }">
+    <div class="ui-bottom-btn ui-btn-box" v-link="{ path: '/competitonAttend' }">
       马上报名
-    </div> -->
-    <div class="ui-bottom-btn ui-btn-box" v-link="{ path: '/scheduleList' }">
-      查看赛事
     </div>
+    <!-- <div class="ui-bottom-btn ui-btn-box" v-link="{ path: '/scheduleList' }">
+      查看赛事
+    </div> -->
   </div>
 </template>
 

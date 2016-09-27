@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Loading from './components/common/loading'
-import Tip from './components/common/tip'
+import Loading from './views/common/loading'
+import Tip from './views/common/tip'
 import store from './vuex/store'
 import { getUserInfo } from './vuex/actions/userInfo'
 import fastclick from 'fastclick'

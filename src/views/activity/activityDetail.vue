@@ -18,7 +18,7 @@
           <span class="iconfont icon-zhifushijian ui-txt-highlight"></span> 09月03日 19:00 - 21:00
         </div>
         <div class="ui-flex-1 ui-text-center">
-          <span class="iconfont icon-renminbi ui-txt-highlight"></span> 20元/人
+          <span class="iconfont ui-txt-highlight">￥</span> 20元/人
         </div>
       </div>
       <club-intro></club-intro>
