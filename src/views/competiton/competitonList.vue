@@ -130,17 +130,17 @@
 
 <script>
 import uiHead from '../common/head'
-import { setCompetitonList } from '../../vuex/actions/competiton'
-import { list } from '../../vuex/getters/competiton'
+// import { setCompetitonList } from '../../vuex/actions/competiton'
+// import { list } from '../../vuex/getters/competiton'
 export default {
-  Vuex: {
-    actions: {
-      setCompetitonList
-    },
-    getters: {
-      list
-    }
-  },
+  // Vuex: {
+  //   actions: {
+  //     setCompetitonList
+  //   },
+  //   getters: {
+  //     list
+  //   }
+  // },
   data: function () {
     return {
     }
@@ -153,12 +153,12 @@ export default {
     uiHead
   },
   route: {
-    data() {
-      this.setCompetitonList()
-          .then((res) => {
-            console.log('list success', this.list)
-          })
-          .catch((e) => { console.log(e) })
+    data () {
+      // this.setCompetitonList()
+      //     .then((res) => {
+      //       console.log('list success', this.list)
+      //     })
+      //     .catch((e) => { console.log(e) })
     }
   }
 }
