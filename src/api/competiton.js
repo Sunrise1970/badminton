@@ -1,4 +1,4 @@
-import { attend, competitonList } from '../resource'
+import { attend, competitonList, competitonIntro } from '../resource'
 
 // 比赛报名
 export const toAttend = (attendUserObj) => {
@@ -15,4 +15,12 @@ export const toAttend = (attendUserObj) => {
 export const getCompetitonList = () => {
   let option = {}
   return competitonList.get(option)
+}
+
+// 比赛详情
+export const getCompetitonIntro = (competitonId) => {
+  let option = {
+    competitonId: competitonId
+  }
+  return competitonIntro.get(option)
 }

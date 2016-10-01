@@ -13,3 +13,6 @@ export const attend = Vue.resource(hosts + '/competiton/attend')
 
 // 比赛列表
 export const competitonList = Vue.resource(hosts + '/competiton/competitonList')
+
+// 比赛详情
+export const competitonIntro = Vue.resource(hosts + '/competiton/competitonInfo')

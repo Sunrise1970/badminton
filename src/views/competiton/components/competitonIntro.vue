@@ -49,7 +49,18 @@
 
 <script>
 import clubIntro from '../../common/clubIntro'
+import { setCompetitonIntro } from '../../../vuex/actions/competiton'
+import { intro } from '../../../vuex/getters/competiton'
+
 export default {
+  vuex: {
+    actions: {
+      setCompetitonIntro
+    },
+    getters: {
+      intro
+    }
+  },
   data: function () {
     return {}
   },
@@ -60,6 +71,16 @@ export default {
   },
   components: {
     clubIntro
+  },
+  route: {
+    data () {
+      console.log('intro successdddddd')
+      this.setCompetitonIntro()
+          .then((res) => {
+            console.log('intro success', this.intro)
+          })
+          .catch((e) => { console.log(e) })
+    }
   }
 }
 </script>

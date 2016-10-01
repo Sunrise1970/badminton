@@ -25,7 +25,18 @@ import competitonIntro from './components/competitonIntro'
 import competitonMember from './components/competitonMember'
 import competitonAgainst from './components/competitonAgainst'
 import competitonUser from './components/competitonUser'
+
+import { setCompetitonIntro } from '../../vuex/actions/competiton'
+import { intro } from '../../vuex/getters/competiton'
 export default {
+  vuex: {
+    actions: {
+      setCompetitonIntro
+    },
+    getters: {
+      intro
+    }
+  },
   data: function () {
     return {
       detailType: 1,
@@ -45,6 +56,15 @@ export default {
     competitonMember,
     competitonAgainst,
     competitonUser
+  },
+  route: {
+    data () {
+      this.setCompetitonIntro(this.$route.query.competitonId)
+          .then((res) => {
+            console.log('intro success', this.intro)
+          })
+          .catch((e) => { console.log(e) })
+    }
   }
 }
 </script>

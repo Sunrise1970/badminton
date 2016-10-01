@@ -4,7 +4,7 @@
     display: inline-block;
     -webkit-border-radius: $avatar-radius;
     overflow: hidden;
-    vertical-align: sub;
+    vertical-align: middle;
     span {
       width: 100%;
       height: 100%;
@@ -14,6 +14,7 @@
       -webkit-background-size: cover;
       -webkit-border-radius: $avatar-radius;
     }
+    background-color: #f7f7f7;
 }
 .ui-avatar-lg {
     width: $avatar-width-lg;
@@ -21,7 +22,7 @@
     display: inline-block;
     -webkit-border-radius: $avatar-radius;
     overflow: hidden;
-    vertical-align: sub;
+    vertical-align: middle;
     span {
       width: 100%;
       height: 100%;
@@ -31,4 +32,5 @@
       -webkit-background-size: cover;
       -webkit-border-radius: $avatar-radius;
     }
+    background-color: #f7f7f7;
 }

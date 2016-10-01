@@ -15,7 +15,7 @@ export const setActivityList = ({ dispatch, state }) => {
       }
     })
     .catch((error) => {
-      dispatch('GET_ACTIVITY_LIST_FAILURE')
+      dispatch(types.GET_ACTIVITY_LIST_FAILURE)
       reject(error)
     })
   })
