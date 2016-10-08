@@ -6,7 +6,7 @@
       <div class="ui-flex-1" v-link="{ path: '/competitonList.vue' }">赛事</div>
     </div> -->
     <div class="competiton-list ui-whitespace-m">
-    <ul class="clearfix">
+    <ul class="clearfix" v-if="state==='success'">
       <li v-for="item in competitonList" v-link="{ path: '/competitonDetail', query:{ competitonId: item._id } }" class="ui-border-radius">
         <div class="ui-common-pd">
           <div class="ui-flex">
@@ -37,6 +37,8 @@
         </div>
       </li>
     </ul>
+    <div class="ui-flex-center" v-if="state==='noResult'">暂无比赛信息噢</div>
+    <div class="ui-flex-center" v-if="state==='error'">哎呦，网络有点故障呢</div>
   </div>
   </div>
 </template>
@@ -57,6 +59,7 @@ export default {
   },
   data: function () {
     return {
+      state: ''
     }
   },
   computed: {
@@ -80,9 +83,19 @@ export default {
     data () {
       this.setCompetitonList()
           .then((res) => {
-            console.log('list success', this.list)
+            console.log(this.list.length)
+            if (this.list.length !== 0) {
+              console.log('list success', this.list)
+              this.state = 'success'
+            } else {
+              console.log('list noResult', this.list)
+              this.state = 'noResult'
+            }
           })
-          .catch((e) => { console.log(e) })
+          .catch((e) => {
+            console.log(e)
+            this.state = 'error'
+          })
     }
   }
 }

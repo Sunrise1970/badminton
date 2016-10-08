@@ -16,3 +16,12 @@ export const competitonList = Vue.resource(hosts + '/competiton/competitonList')
 
 // 比赛详情
 export const competitonIntro = Vue.resource(hosts + '/competiton/competitonInfo')
+
+// 参加比赛人员信息
+export const competitonMember = Vue.resource(hosts + '/competiton/competitonMember')
+
+// 比赛对阵信息
+export const competitonAgainst = Vue.resource(hosts + '/competiton/competitonAgainst')
+
+// 当前用户比赛信息
+export const competitonUser = Vue.resource(hosts + '/competiton/competitonUser')

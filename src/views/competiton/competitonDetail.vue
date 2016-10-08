@@ -1,15 +1,15 @@
 <template>
   <ui-head title="比赛详情"></ui-head>
   <div class="ui-common-box compeition-detail">
-    <competiton-common-nav :detail-type.sync="detailType" :competiton-type.sync="competitonType">{{this.detailType}}</competiton-common-nav>
+    <competiton-common-nav :detail-type.sync="detailType" :competiton-type.sync="competitonType" :process-type.sync="processType">{{this.detailType}}</competiton-common-nav>
     <template v-if="detailType==1">
-      <competiton-intro></competiton-intro>
+      <competiton-intro :competiton-id="competitonId"></competiton-intro>
     </template>
     <template v-if="detailType==2">
       <competiton-member></competiton-member>
     </template>
     <template v-if="detailType==3">
-      <competiton-against></competiton-against>
+      <competiton-against :process-type="processType"></competiton-against>
     </template>
     <template v-if="detailType==4">
       <competiton-user></competiton-user>
@@ -40,7 +40,9 @@ export default {
   data: function () {
     return {
       detailType: 1,
-      competitonType: 1
+      competitonType: 1,
+      processType: 1,
+      competitonId: ''
     }
   },
   computed: {},
@@ -59,7 +61,8 @@ export default {
   },
   route: {
     data () {
-      this.setCompetitonIntro(this.$route.query.competitonId)
+      this.competitonId = this.$route.query.competitonId
+      this.setCompetitonIntro(this.competitonId)
           .then((res) => {
             console.log('intro success', this.intro)
           })

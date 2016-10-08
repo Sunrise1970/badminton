@@ -121,7 +121,13 @@
 <script>
 import uiHead from '../../common/head'
 import competitonCommonNav from './../components/competitonCommonNav'
+import { againstInfo } from '../../../vuex/getters/competiton'
 export default {
+  vuex: {
+    getters: {
+      againstInfo
+    }
+  },
   data: function () {
     return {
     }

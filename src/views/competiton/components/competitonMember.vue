@@ -100,7 +100,13 @@
 </template>
 
 <script>
+import { memberList } from '../../../vuex/getters/competiton'
 export default {
+  vuex: {
+    getters: {
+      memberList
+    }
+  },
   data: function () {
     return {
       competitonType: 1
@@ -114,6 +120,9 @@ export default {
       this.competitonType = type
     }
   },
-  components: {}
+  components: {},
+  route: {
+    data () {}
+  }
 }
 </script>

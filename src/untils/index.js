@@ -24,7 +24,11 @@ exports.getDateFormat = (timeStamp, type) => {
   } else {
     result = [year, month, day].join('-') + ' ' + [hour, minute, second].join(':')
   }
-  return result
+  if (!isNaN(d.getFullYear())) {
+    return result
+  } else {
+    return '尚未确定'
+  }
 }
 
 let returnFormat = (time) => {

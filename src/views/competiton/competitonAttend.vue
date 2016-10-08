@@ -12,8 +12,11 @@
             <input type="text" id="name" value="" v-model="attend.name" placeholder="请输入姓名">
           </div>
           <div class="form-label-input ui-border-b">
-            <label for="tel">性&emsp;&emsp;别</label>
-            <input type="text" id="tel" value="" v-model="attend.tel" placeholder="请输入手机号码">
+            <label for="sex">性&emsp;&emsp;别</label>
+            <select id="sex" v-model="attend.sex">
+              <option selected value="1">男</option>
+              <option value="2">女</option>
+            </select>
           </div>
           <div class="form-label-input ui-border-b">
             <label for="card">身&ensp;份&ensp;证</label>
@@ -66,12 +69,16 @@
       </div>
       <input class="ui-bottom-btn ui-btn-box" type="submit" value="提交">
     </form>
+    <toast :show.sync="tipShow" type="text">{{tipMsg}}</toast>
+    <loading :show.sync="loadingShow"></loading>
   </div>
 </template>
 
 <script>
 import validator from 'validator'
 import uiHead from '../common/head'
+import { Toast, Loading } from '../../components'
+
 import { setAttend } from '../../vuex/actions/competiton'
 export default {
   vuex: {
@@ -79,14 +86,17 @@ export default {
       setAttend
     }
   },
-  data: function () {
+  data () {
     return {
       attend: {
         name: '',
         card: '',
         tel: '',
         competitonType: 1
-      }
+      },
+      tipShow: false,
+      tipMsg: '',
+      loadingShow: false
     }
   },
   computed: {},
@@ -100,26 +110,40 @@ export default {
         name: validator.trim(this.attend.name),
         card: validator.trim(this.attend.card),
         tel: validator.trim(this.attend.tel),
-        competitonType: this.attend.competitonType
+        competitonType: this.attend.competitonType,
+        competitonId: this.$route.query.competitonId
       }
-      if ([attendObj.name, attendObj.card, attendObj.tel, attendObj.competitonType].some(function (item) { return item === '' })) {
-        window.alert('请输入完整的信息')
+      if ([attendObj.name, attendObj.card, attendObj.tel, attendObj.competitonType, attendObj.competitonId].some(function (item) { return item === '' })) {
+        this.tipShow = true
+        this.tipMsg = '请输入完整信息'
         return
       }
       if (!validator.isMobilePhone(attendObj.tel, 'zh-CN')) {
-        window.alert('手机号码有误')
+        this.tipShow = true
+        this.tipMsg = '手机号码有误'
         return
       }
       console.log('view(attend handler): attend input ', this.attend)
       console.log('view(attend handler): attend input attend.name', this.attend.name)
+      this.loadingShow = true
       this.setAttend(attendObj)
+          .then((res) => {
+            this.loadingShow = false
+          })
+          .catch((e) => {
+            this.loadingShow = false
+            this.tipShow = true
+            this.tipMsg = e
+          })
     },
     selectCompetitonType: function (type) {
       this.attend.competitonType = type
     }
   },
   components: {
-    uiHead
+    uiHead,
+    Toast,
+    Loading
   }
 }
 </script>

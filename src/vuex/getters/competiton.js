@@ -8,3 +8,12 @@ export const list = () => {
 export const intro = () => {
   return competiton.intro
 }
+export const memberList = () => {
+  return competiton.memberList
+}
+export const againstList = () => {
+  return competiton.againstList
+}
+export const competitonUserList = () => {
+  return competiton.competitonUserList
+}
