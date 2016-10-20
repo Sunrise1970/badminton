@@ -48,7 +48,7 @@ export function setRouter (router) {
     },
     '/competitonAgainstDetail': {
       name: 'competiton attend',
-      title: '比赛报名',
+      title: '比赛对阵详情',
       component: (resolve) => require(['./views/competiton/components/competitonAgainstDetail.vue'], resolve)
     }
   })

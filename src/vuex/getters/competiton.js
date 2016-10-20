@@ -17,3 +17,9 @@ export const againstList = () => {
 export const competitonUserList = () => {
   return competiton.competitonUserList
 }
+export const competitonType = () => {
+  return competiton.competitonType
+}
+export const againstDetail = () => {
+  return competiton.againstDetail
+}

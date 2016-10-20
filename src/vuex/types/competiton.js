@@ -30,3 +30,9 @@ export const GET_COMPETITON_USER = 'GET_COMPETITON_USER'
 
 // 获取当前用户比赛信息失败
 export const GET_COMPETITON_USER_FAILURE = 'GET_COMPETITON_USER_FAILURE'
+
+// 获取当前比赛类型
+export const GET_COMPETITON_TYPE = 'GET_COMPETITON_TYPE'
+
+// 获取对阵详情
+export const GET_AGAINST_DETAIL = 'GET_AGAINST_DETAIL'

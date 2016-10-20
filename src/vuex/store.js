@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import activity from './modules/activity'
 import competiton from './modules/competiton'
 import userInfo from './modules/userInfo'
+import common from './modules/common'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
   modules: {
     activity,
     competiton,
-    userInfo
+    userInfo,
+    common
   },
   strict: debug,
   middlewares: debug ? [] : []

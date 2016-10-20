@@ -4,9 +4,11 @@ const state = {
   list: [],
   tip: '',
   intro: '',
-  memberList: [],
+  memberList: {},
   againstList: [],
-  competitonUserList: []
+  competitonUserList: {},
+  competitonType: 1,
+  againstDetail: {}
 }
 
 const mutations = {
@@ -47,6 +49,12 @@ const mutations = {
   },
   [types.GET_COMPETITON_USER_FAILURE] (state) {
     state.tip = 'error tip'
+  },
+  [types.GET_COMPETITON_TYPE] (state, competitonType) {
+    state.competitonType = competitonType
+  },
+  [types.GET_AGAINST_DETAIL] (state, againstDetail) {
+    state.againstDetail = againstDetail
   }
 }
 

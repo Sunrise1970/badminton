@@ -4,15 +4,14 @@ import {
   competitonIntro,
   competitonMember,
   competitonAgainst,
-  competitonUser
+  competitonUser,
+  againstDetail
  } from '../resource'
 
 // 比赛报名
 export const toAttend = (attendUserObj) => {
   let option = {
-    name: attendUserObj.name,
-    card: attendUserObj.card,
-    tel: attendUserObj.tel,
+    user: attendUserObj.user,
     competitonType: attendUserObj.competitonType,
     competitonId: attendUserObj.competitonId
   }
@@ -29,30 +28,41 @@ export const getCompetitonList = () => {
 // 比赛详情
 export const getCompetitonIntro = (competitonId) => {
   let option = {
-    competitonId: competitonId
+    _id: competitonId
   }
   return competitonIntro.get(option)
 }
 
 // 参加比赛人员信息
-export const getCompetitonMember = (competitonId) => {
+export const getCompetitonMember = (competitonId, type) => {
   let option = {
-    competitonId: competitonId
+    competiton_id: competitonId,
+    competiton_type: type
   }
   return competitonMember.get(option)
 }
 // 比赛对阵信息
-export const getCompetitonAgainst = (competitonId) => {
+export const getCompetitonAgainst = (competitonId, competitonType, competitonProcessType) => {
   let option = {
-    competitonId: competitonId
+    competiton_id: competitonId,
+    competiton_type: competitonType,
+    competiton_process_type: competitonProcessType
   }
   return competitonAgainst.get(option)
 }
 
 // 当前比赛用户信息
-export const getCompetitonUser = (competitonId) => {
+export const getCompetitonUser = () => {
   let option = {
-    competitonId: competitonId
+    user_id: '57fb659553938f0eedd91651'
   }
   return competitonUser.get(option)
+}
+
+// 对阵详情信息
+export const getAgainstDetail = (againstId) => {
+  let option = {
+    id: againstId
+  }
+  return againstDetail.get(option)
 }

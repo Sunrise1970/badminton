@@ -9,7 +9,17 @@
 </template>
 
 <script>
+import { hideTip } from '../vuex/actions/common'
+import { showTip } from '../vuex/getters/common'
 export default {
+  vuex: {
+    actions: {
+      hideTip
+    },
+    getters: {
+      showTip
+    }
+  },
   props: {
     show: {
       type: Boolean,
@@ -17,7 +27,7 @@ export default {
     },
     time: {
       type: Number,
-      default: 2000
+      default: 1200
     },
     type: {
       type: String,
@@ -47,7 +57,8 @@ export default {
       if (val) {
         clearTimeout(tm)
         let tm = setTimeout(() => {
-          this.show = false
+          this.hideTip()
+          this.show = this.showTip.tipShow
         }, this.time)
       }
     }
@@ -71,7 +82,7 @@ export default {
 }
 .toast {
   position: fixed;
-  min-width: 3.5rem;
+  min-width: 4.5rem;
   top: 50%;
   left: 50%;
   margin-top: -.6rem;

@@ -17,18 +17,14 @@
             <!-- 双打 -->
             <div class="ui-flex-5 ui-border-l">
               <div class="ui-transform-y">
-                <div class="ui-text-center ui-common-mg-tb">
-                  <div class="ui-avatar-lg ui-vertical-middle">
-                    <span style="background-image:url(http://placehold.it/100x100)"></span>
+                <template v-for="item in part_a">
+                  <div class="ui-text-center ui-common-mg-tb">
+                    <div class="ui-avatar-lg ui-vertical-middle">
+                      <span style="background-image:url(http://placehold.it/100x100)"></span>
+                    </div>
+                    <span class="against-name ui-border-radius">{{item.name}}</span>
                   </div>
-                  <span class="against-name ui-border-radius">李四端</span>
-                </div>
-                <div class="ui-text-center ui-common-mg-tb">
-                  <div class="ui-avatar-lg ui-vertical-middle">
-                    <span style="background-image:url(http://placehold.it/100x100)"></span>
-                  </div>
-                  <span class="against-name ui-border-radius">李四端</span>
-                </div>
+                </template>
               </div>
             </div>
             <!-- 单打 -->
@@ -50,18 +46,14 @@
             <!-- 双打 -->
             <div class="ui-flex-5 ui-border-l">
               <div class="ui-transform-y">
-                <div class="ui-text-center ui-common-mg-tb">
-                  <div class="ui-avatar-lg ui-vertical-middle">
-                    <span style="background-image:url(http://placehold.it/100x100)"></span>
+                <template v-for="item in part_b">
+                  <div class="ui-text-center ui-common-mg-tb">
+                    <div class="ui-avatar-lg ui-vertical-middle">
+                      <span style="background-image:url(http://placehold.it/100x100)"></span>
+                    </div>
+                    <span class="against-name ui-border-radius">{{item.name}}</span>
                   </div>
-                  <span class="against-name ui-border-radius">李四端</span>
-                </div>
-                <div class="ui-text-center ui-common-mg-tb">
-                  <div class="ui-avatar-lg ui-vertical-middle">
-                    <span style="background-image:url(http://placehold.it/100x100)"></span>
-                  </div>
-                  <span class="against-name ui-border-radius">李四端</span>
-                </div>
+                </template>
               </div>
             </div>
             <div class="ui-flex-1 ui-border-l"></div>
@@ -79,41 +71,37 @@
     </div>
     <div class="ui-flex ui-common-pd-tb ui-text-center ui-txt-bg">
       <div class="ui-flex-1">
-        张三丰
+        <template v-for="item in againstDetail.part_a_user">
+          {{item.users[0].name}}&nbsp;&nbsp;
+        </template>
       </div>
       <div class="ui-flex-1">
-        <em class="ui-font-14">2：1</em>
+        <em class="ui-font-14">{{againstDetail.part_a_score}}：{{againstDetail.part_b_score}}</em>
       </div>
       <div class="ui-flex-1">
-        李四端
+        <template v-for="item in againstDetail.part_b_user">
+          {{item.users[0].name}}&nbsp;&nbsp;
+        </template>
       </div>
     </div>
     <div class="ui-common-mg-b ui-common-pd-t ui-whitespace-p">
-      <div class="ui-flex-between ui-common-pd-tb ui-border-b">
-        <div class="ui-txt-info ui-common-pd-l">第一局</div>
-        <div class="ui-common-pd-r">14：21</div>
-      </div>
-      <div class="ui-flex-between ui-common-pd-tb ui-border-b">
-        <div class="ui-txt-info ui-common-pd-l">第二局</div>
-        <div class="ui-common-pd-r">21：10</div>
-      </div>
-      <div class="ui-flex-between ui-common-pd-tb ui-border-b">
-        <div class="ui-txt-info ui-common-pd-l">第三局</div>
-        <div class="ui-common-pd-r">21：20</div>
+      <div class="ui-flex-between ui-common-pd-tb ui-border-b" v-for="item in againstScore">
+        <div class="ui-txt-info ui-common-pd-l">第{{$index+1}}局</div>
+        <div class="ui-common-pd-r">{{item}}</div>
       </div>
     </div>
     <div class="ui-common-mg-b ui-common-pd-t ui-whitespace-p">
       <div class="ui-flex-between ui-common-pd-tb ui-border-b">
         <div class="ui-txt-info ui-common-pd-l">裁判</div>
-        <div class="ui-common-pd-r">王五</div>
+        <div class="ui-common-pd-r">{{againstDetail.judgment}}</div>
       </div>
       <div class="ui-flex-between ui-common-pd-tb ui-border-b">
         <div class="ui-txt-info ui-common-pd-l">场地</div>
-        <div class="ui-common-pd-r">2号场</div>
+        <div class="ui-common-pd-r">{{againstDetail.competiton_area}}号场</div>
       </div>
     </div>
     <div class="ui-common-pd-tb ui-text-center">
-      <span class="ui-win">Win</span> 胜利方:  <em>张三丰</em>
+      <span class="ui-win">Win</span> 胜利方:  <em>{{win}}</em>
     </div>
   </div>
 </template>
@@ -121,24 +109,78 @@
 <script>
 import uiHead from '../../common/head'
 import competitonCommonNav from './../components/competitonCommonNav'
-import { againstInfo } from '../../../vuex/getters/competiton'
+import { showLoading, hideLoading } from '../../../vuex/actions/common'
+import { setAgainstDetail } from '../../../vuex/actions/competiton'
+import { againstDetail } from '../../../vuex/getters/competiton'
 export default {
   vuex: {
+    actions: {
+      showLoading,
+      hideLoading,
+      setAgainstDetail
+    },
     getters: {
-      againstInfo
+      againstDetail
     }
   },
   data: function () {
-    return {
+    return {}
+  },
+  computed: {
+    win () {
+      let winner = this.againstDetail.part_a_score > this.againstDetail.part_b_score ? 'a' : 'b'
+      let partA = ''
+      let partB = ''
+      if (this.againstDetail.part_a_user) {
+        for (let item of this.againstDetail.part_a_user) {
+          partA += ' ' + item.users[0].name
+        }
+      }
+      if (this.againstDetail.part_b_user) {
+        for (let item of this.againstDetail.part_b_user) {
+          partB += ' ' + item.users[0].name
+        }
+      }
+      if (winner === 'a') {
+        return partA
+      } else {
+        return partB
+      }
+    },
+    againstScore () {
+      return this.againstDetail.score_detail && this.againstDetail.score_detail.split('_')
+    },
+    part_a () {
+      if (this.againstDetail.part_a_user) {
+        return this.againstDetail.part_a_user[0].users
+      }
+    },
+    part_b () {
+      if (this.againstDetail.part_b_user) {
+        return this.againstDetail.part_b_user[0].users
+      }
     }
   },
-  computed: {},
   ready: function () {},
   attached: function () {},
   methods: {},
   components: {
     uiHead,
     competitonCommonNav
+  },
+  route: {
+    data () {
+      this.showLoading()
+      let competitonDetailId = this.$route.query.competitonDetailId
+      this.setAgainstDetail(competitonDetailId)
+          .then((res) => {
+            this.hideLoading()
+          })
+          .catch((e) => {
+            this.hideLoading()
+            this.state = 'error'
+          })
+    }
   }
 }
 </script>
