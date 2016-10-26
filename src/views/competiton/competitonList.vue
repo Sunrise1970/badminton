@@ -68,7 +68,7 @@ export default {
         item.competitonState = (item.state === 1) ? '进行中' : '已结束'
         item.competiton_bg = item.competiton_img ? `background-image:url(${item.competiton_img})` : ''
         item.company_bg = item.company_logo ? `background-image:url(${item.company_logo})` : ''
-        item.date = getDateFormat(item.competiton_date, 1)
+        item.date = getDateFormat(item.competiton_date)
         return item
       })
     }

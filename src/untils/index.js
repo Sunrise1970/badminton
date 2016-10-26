@@ -1,40 +1,39 @@
 /**
- * 将时间戳转换成时间 - getDateFormat(timeStamp, format, mark)
- * @param  {String} timeStamp    时间戳
-   * @param  {String} type       时分秒显示状态（1：不显示 2： 显示）
- * @result {String} result         时间
+ * 将时间戳转换成时间 - getDateFormat(timeStamp, format)
+ * @param  {DateString}            timestamp default: 当前时间
+ * @param  {formatString}          fmt  default: yyyy-mm-dd  y:年 m:月 d:日 w:星期 h:小时 M:分钟 s:秒
+ * @result {String} return         ;esult         时间
  */
 
-exports.getDateFormat = (timeStamp, type) => {
-  let d
-  let result
-  if (timeStamp) {
-    d = new Date(timeStamp)
-  } else {
-    d = new Date((new Date()).valueOf())
+exports.getDateFormat = (timestamp, fmt) => {
+  let D = new Date()
+  let week = '日一二三四五六'
+  timestamp && D.setTime(timestamp)
+  fmt = fmt || 'yyyy-mm-dd'
+  let d = {
+    'm+': D.getMonth() + 1,
+    'd+': D.getDate(),
+    'w+': week.charAt(D.getDay()),
+    'h+': D.getHours(),
+    'M+': D.getMinutes(),
+    's+': D.getSeconds()
   }
-  let year = '' + d.getFullYear()
-  let month = '' + returnFormat((d.getMonth() + 1))
-  let day = '' + returnFormat(d.getDate())
-  let hour = '' + returnFormat(d.getHours())
-  let minute = '' + returnFormat(d.getMinutes())
-  let second = '' + returnFormat(d.getSeconds())
-  if (type === 1) {
-    result = [year, month, day].join('-')
-  } else {
-    result = [year, month, day].join('-') + ' ' + [hour, minute, second].join(':')
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (D.getFullYear() + '').slice(-RegExp.$1.length))
   }
-  if (!isNaN(d.getFullYear())) {
-    return result
-  } else {
-    return '尚未确定具体时间'
-  }
+  Object.keys(d).forEach((key) => {
+    if (new RegExp(`(${key})`).test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? d[key] : (`00${d[key]}`).slice(('' + d[key]).length))
+    }
+  })
+  return fmt
 }
 
-let returnFormat = (time) => {
-  return time.toString().length < 2 ? ('0' + time) : time
-}
-
+/**
+ * 验证身份证有效性 - validateIdCard(idCard)
+ * @param  {String}  idCard         身份证号码
+ * @result {boolean} result         验证有效与否
+ */
 exports.validateIdCard = (idCard) => {
   // 15位和18位身份证号码的正则表达式
   var regIdCard = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/
@@ -74,4 +73,64 @@ exports.validateIdCard = (idCard) => {
     console.log('3')
     return
   }
+}
+
+/**
+ * 设置cookie - setCookie(option)
+ * @param {Object}   option                   参数
+ * @param {String}   option -- key            键
+ * @param {String}   option -- value          值
+ * @param {Number}   option -- expireDays     过期时间
+ * @param {Number}   option -- domain         域
+ * @param {Number}   option -- routing        路径
+ */
+exports.setCookie = function (option) {
+  let optionDefault = {
+    key: '',
+    value: '',
+    expireDays: 30,
+    domain: '',
+    routing: '/'
+  }
+  for (let item in option) {
+    optionDefault[item] = option[item]
+  }
+  let exdate = new Date()
+  let cookie
+  console.log(optionDefault)
+  exdate.setDate(exdate.getDate() + optionDefault.expireDays)
+  cookie = `${optionDefault.key}=${encodeURIComponent(optionDefault.value)}`
+  optionDefault.domain && (cookie += `; domain=${optionDefault.domain}`)
+  optionDefault.routing && (cookie += `; routing=${optionDefault.routing}`)
+  optionDefault.expireDays && (cookie += `; expireDays=${exdate}`)
+  console.log(cookie)
+  document.cookie = cookie
+}
+
+/**
+ * 获取cookie - getCookie(key)
+ * @param  {Object}   key                 键
+ * @result {*}        result              返回cookie值，没有就返回空
+ */
+exports.getCookie = function (key) {
+  let _cookie = document.cookie
+  let itemsArr = _cookie.split('; ')
+  let item = []
+  for (let i = 0; i < itemsArr.length; i++) {
+    item = itemsArr[i].split('=')
+    if (key === item[0] && item.length === 2) {
+      return decodeURIComponent(item[1])
+    }
+  }
+  return ''
+}
+
+/**
+ * 删除cookie - removeCookie(key)
+ * @param  {Object}   key                 键
+ */
+exports.removeCookie = function (key) {
+  let date = new Date()
+  date.setDate(date.getDate() - 10000 * 3600 * 31)
+  document.cookie = `${key}=; path=/; expires = ${date.toString()}`
 }

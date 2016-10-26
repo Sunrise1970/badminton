@@ -52,9 +52,10 @@ export const getCompetitonAgainst = (competitonId, competitonType, competitonPro
 }
 
 // 当前比赛用户信息
-export const getCompetitonUser = () => {
+export const getCompetitonUser = (tel, id) => {
   let option = {
-    user_id: '57fb659553938f0eedd91651'
+    competiton_id: id,
+    tel: tel
   }
   return competitonUser.get(option)
 }

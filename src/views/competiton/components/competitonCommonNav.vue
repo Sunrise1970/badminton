@@ -119,17 +119,18 @@ export default {
                 })
             break
           case 4:
-            this.setCompetitonUser()
-                .then((res) => {
-                  this.hideLoading()
-                })
-                .catch((e) => {
-                  this.hideLoading()
-                  this.state = 'error'
-                  // if (e.code === 500) {
-                  //   this.showTip(e.message)
-                  // }
-                })
+            this.hideLoading()
+            // this.setCompetitonUser()
+            //     .then((res) => {
+            //       this.hideLoading()
+            //     })
+            //     .catch((e) => {
+            //       this.hideLoading()
+            //       this.state = 'error'
+            //       // if (e.code === 500) {
+            //       //   this.showTip(e.message)
+            //       // }
+            //     })
             break
         }
       // 二级导航（男单、女单、男双、女双、混双）

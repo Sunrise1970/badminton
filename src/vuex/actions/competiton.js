@@ -111,9 +111,9 @@ export const setCompetitonAgainst = ({ dispatch, state }, competitonId, type, pr
   })
 }
 // 设置当前用户比赛信息
-export const setCompetitonUser = ({ dispatch, state }) => {
+export const setCompetitonUser = ({ dispatch, state }, tel, id) => {
   return new Promise((resolve, reject) => {
-    getCompetitonUser()
+    getCompetitonUser(tel, id)
     .then((res) => {
       res = res.json() || {}
       if (res.code === 200) {

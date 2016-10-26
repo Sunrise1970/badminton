@@ -1,6 +1,6 @@
 <template>
   <div class="head ui-nav-box pdb" v-if="rebackHead">
-    <a v-link="{ path: '/index', activeClass: 'active-border' }">活动</a>
+    <!-- <a v-link="{ path: '/index', activeClass: 'active-border' }">活动</a> -->
     <a v-link="{ path: '/competitonList', activeClass: 'active-border' }">比赛</a>
   </div>
   <div class="reback-head clearfix ui-nav-box" v-if="!rebackHead">

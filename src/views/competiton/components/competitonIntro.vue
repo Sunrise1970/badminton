@@ -6,7 +6,7 @@
       </div>
       <div class="ui-flex-between ui-common-pd-tb ui-border-b">
         <div class="ui-txt-info ui-common-pd-l">开始时间</div>
-        <div class="ui-common-pd-r"><span class="iconfont icon-zhifushijian ui-font-14 ui-txt-highlight"></span> {{date}}</div>
+        <div class="ui-common-pd-r"><span class="iconfont icon-zhifushijian ui-font-14 ui-txt-highlight"></span>&nbsp; {{competitonDate}}</div>
       </div>
       <div class="ui-flex-between ui-common-pd-tb ui-border-b">
         <div class="ui-txt-info ui-common-pd-l">比赛地点</div>
@@ -20,10 +20,10 @@
         <div class="ui-txt-info ui-common-pd-l">比赛类型</div>
         <div class="ui-common-pd-r">{{type}}</div>
       </div>
-      <div class="ui-flex-between ui-common-pd-tb ui-border-b">
+      <!-- <div class="ui-flex-between ui-common-pd-tb ui-border-b">
         <div class="ui-txt-info ui-common-pd-l">已&ensp;报&ensp;名</div>
-        <div class="ui-common-pd-r">{{intro.attend_num}} 人</div>
-      </div>
+        <div class="ui-common-pd-r">{{intro.all}} 人</div>
+      </div> -->
       <div class="ui-flex-between ui-common-pd-tb ui-border-b ui-arrowlink">
         <div class="ui-txt-info ui-common-pd-l">比赛奖品</div>
         <div class="ui-common-pd-r"><span class="iconfont icon-jingshi ui-font-14 ui-txt-highlight"></span> <span class="ui-txt-feeds">点击查看</span></div>
@@ -64,7 +64,7 @@ export default {
     competitonState () {
       return this.intro.state === 1 ? '报名ing...' : '已结束'
     },
-    date () {
+    competitonDate () {
       return getDateFormat(this.intro.competiton_date)
     },
     type () {
