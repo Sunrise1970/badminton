@@ -36,3 +36,6 @@ export const GET_COMPETITON_TYPE = 'GET_COMPETITON_TYPE'
 
 // 获取对阵详情
 export const GET_AGAINST_DETAIL = 'GET_AGAINST_DETAIL'
+
+// 大转盘抽奖id
+export const GET_LOTTERY_ID = 'GET_LOTTERY_ID'

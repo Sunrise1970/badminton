@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="info-wrap">
     <div class="ui-common-mg-b ui-common-pd-t ui-whitespace-p">
-      <div class="ui-font-14">
-        <em>【{{competitonState}}】</em>9月3号尤雨溪宣布与阿里巴巴weex团队合作，非常鸡冻！
+      <div>
+        <em class="ui-font-14">【{{competitonState}}】</em>为了丰富员工的业余生活，培养员工团队精神，增强员工凝聚力，促进员工之间友谊，营造一个自信、阳光、充满朝气、永不服输的企业氛围，展示员工青春活力。特举办本届羽毛球比赛。
       </div>
       <div class="ui-flex-between ui-common-pd-tb ui-border-b">
         <div class="ui-txt-info ui-common-pd-l">开始时间</div>
@@ -20,22 +20,22 @@
         <div class="ui-txt-info ui-common-pd-l">比赛类型</div>
         <div class="ui-common-pd-r">{{type}}</div>
       </div>
-      <!-- <div class="ui-flex-between ui-common-pd-tb ui-border-b">
-        <div class="ui-txt-info ui-common-pd-l">已&ensp;报&ensp;名</div>
-        <div class="ui-common-pd-r">{{intro.all}} 人</div>
-      </div> -->
       <div class="ui-flex-between ui-common-pd-tb ui-border-b ui-arrowlink">
         <div class="ui-txt-info ui-common-pd-l">比赛奖品</div>
-        <div class="ui-common-pd-r"><span class="iconfont icon-jingshi ui-font-14 ui-txt-highlight"></span> <span class="ui-txt-feeds">点击查看</span></div>
+        <div class="ui-common-pd-r" v-link="{ path: '/competitonPrize' }"><span class="iconfont icon-jingshi ui-font-14 ui-txt-highlight"></span> <span class="ui-txt-feeds">点击查看</span></div>
       </div>
       <div class="ui-flex-between ui-common-pd-tb ui-border-b ui-arrowlink">
         <div class="ui-txt-info ui-common-pd-l">比赛章程</div>
-        <div class="ui-common-pd-r"><span class="iconfont icon-jingshi ui-font-14 ui-txt-highlight"></span> <span class="ui-txt-feeds">点击查看</span></div>
+        <div class="ui-common-pd-r" v-link="{ path: '/competitonRule' }"><span class="iconfont icon-jingshi ui-font-14 ui-txt-highlight"></span> <span class="ui-txt-feeds">点击查看</span></div>
       </div>
       <div class="ui-info-head">比赛说明</div>
-      <p class="ui-info-txt ui-border-radius">
-        无限制报名无限制报名无限制报名无限制报名无限制报名无限制报名无限制报名
-      </p>
+      <div class="ui-common-pd ui-border-radius ui-border-shadow info-attention">
+        <ul>
+          <li>1. 践行“尊敬、思考、正直、狼性、共识”公司文化。</li>
+          <li>2. 比赛必须坚持娱乐第一，竞技第二原则，裁判必须严格公正执法；比赛双方队员必须服从裁判的一切判罚，不得攻击、干扰裁判；不得打假球，攻击对方球员；如有上列情况者，视情节严重程度给球员乃至球队予以处罚。</li>
+          <li>3. 要求裁判和队员提前半小时到达比赛场地热身、以保证球员安全。</li>
+        </ul>
+      </div>
     </div>
     <div class="ui-bottom-btn ui-btn-box" v-link="{ path: '/competitonAttend', query:{ competitonId: competitonId } }">
       马上报名
@@ -91,3 +91,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  .info-attention li {
+    padding-bottom: 0.18666666666666668rem;
+  }
+</style>

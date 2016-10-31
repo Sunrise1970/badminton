@@ -23,3 +23,6 @@ export const competitonType = () => {
 export const againstDetail = () => {
   return competiton.againstDetail
 }
+export const lotteryId = () => {
+  return competiton.lotteryId
+}

@@ -18,11 +18,11 @@
             </div>
             <div class="ui-common-pd-tb ui-flex-center ui-text-center">
               <div class="ui-flex-1">
-                <template v-for="items in item.part_a_user">
+                <template v-for="item in item.part_a_user[0].users">
                   <div class="ui-common-pd-tb">
                     <div class="ui-avatar-lg ui-vertical-middle">
                       <span style="background-image:url(http://placehold.it/100x100)"></span>
-                    </div>&emsp; {{items.users[0].name}}
+                    </div>&emsp; {{item.name}}
                   </div>
                 </template>
               </div>
@@ -32,11 +32,11 @@
                 <em class="ui-font-14">{{item.part_b_score}}</em>
               </div>
               <div class="ui-flex-1">
-                <template v-for="items in item.part_b_user">
+                <template v-for="item in item.part_b_user[0].users">
                   <div class="ui-common-pd-tb">
                     <div class="ui-avatar-lg ui-vertical-middle">
                       <span style="background-image:url(http://placehold.it/100x100)"></span>
-                    </div>&emsp; {{items.users[0].name}}
+                    </div>&emsp; {{item.name}}
                   </div>
                 </template>
               </div>
@@ -108,8 +108,6 @@ export default {
         return
       }
       let tel = getCookie('tel')
-      console.log(tel)
-      console.log(this.tel)
       let competitonId = this.$route.query.competitonId
       // 未设cookie
       if (this.tel !== tel) {

@@ -6,40 +6,41 @@
       <div class="ui-flex-1" v-link="{ path: '/competitonList.vue' }">赛事</div>
     </div> -->
     <div class="competiton-list ui-whitespace-m">
-    <ul class="clearfix" v-if="state==='success'">
-      <li v-for="item in competitonList" v-link="{ path: '/competitonDetail', query:{ competitonId: item._id } }" class="ui-border-radius">
-        <div class="ui-common-pd">
-          <div class="ui-flex">
-            <div class="competiton-tag ui-tag">
-              大型赛
+      <ul class="clearfix" v-if="state==='success'">
+        <li v-for="item in competitonList" v-link="{ path: '/competitonDetail', query:{ competitonId: item._id } }" class="ui-border-radius">
+          <div class="ui-common-pd">
+            <div class="ui-flex">
+              <div class="competiton-tag ui-tag">
+                大型赛
+              </div>
+              <div class="ui-flex-1 ui-border-r ui-text-center">
+                {{item.date}}
+              </div>
+              <div class="ui-flex-1 ui-text-center">
+                {{item.hall_name}}
+              </div>
             </div>
-            <div class="ui-flex-1 ui-border-r ui-text-center">
-              {{item.date}}
-            </div>
-            <div class="ui-flex-1 ui-text-center">
-              {{item.hall_name}}
+            <h2 class="ui-font-14 ui-common-pd-tb" style="vertical-align: middle">{{item.competiton_name}}</h2>
+            <section class="ui-placehold-img">
+              <img src="../../assets/plateno.jpg" class="ui-border-radius" alt="" />
+            </section>
+            <div class="ui-flex-between ui-common-pd-t">
+              <div class="ui-vertical-middle">
+                  <img src="../../assets/planote-logo.png" class="logo" alt="" /> {{item.company}}
+              </div>
+              <div>
+                <span class="ui-txt-highlight">比赛{{item.competitonState}}</span>
+              </div>
             </div>
           </div>
-          <h2 class="ui-font-14 ui-common-pd-tb" style="vertical-align: middle">{{item.competiton_name}}</h2>
-          <section class="ui-placehold-img">
-            <span :style="item.competiton_bg"></span>
-          </section>
-          <div class="ui-flex-between ui-common-pd-t">
-            <div class="ui-vertical-middle">
-              <div class="ui-avatar-s">
-                <span :style="item.company_bg"></span>
-              </div> {{item.company}}
-            </div>
-            <div>
-              {{item.attend_num}}/无限制&emsp;<span class="ui-txt-highlight">{{item.competitonState}}</span>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div class="ui-flex-center" v-if="state==='noResult'">暂无比赛信息噢</div>
-    <div class="ui-flex-center" v-if="state==='error'">哎呦，网络有点故障呢</div>
-  </div>
+        </li>
+      </ul>
+      <div class="ui-flex-center" v-if="state==='noResult'">暂无比赛信息噢</div>
+      <div class="ui-flex-center" v-if="state==='error'">哎呦，网络有点故障呢</div>
+    </div>
+    <div class="gaoxiao ui-common-mg-tb ui-whitespace-m">
+      <img src="../../assets/gaoxiao_shouye.gif" class="ui-border-radius" alt="" />
+    </div>
   </div>
 </template>
 
@@ -67,7 +68,7 @@ export default {
       return this.list.map((item) => {
         item.competitonState = (item.state === 1) ? '进行中' : '已结束'
         item.competiton_bg = item.competiton_img ? `background-image:url(${item.competiton_img})` : ''
-        item.company_bg = item.company_logo ? `background-image:url(${item.company_logo})` : ''
+        // item.company_bg = item.company_logo ? `background-image:url(${item.company_logo})` : ''
         item.date = getDateFormat(item.competiton_date)
         return item
       })
@@ -119,7 +120,18 @@ export default {
     display: inline-block;
   }
 }
-.competiton-tag {
-
+.gaoxiao img {
+  display: inline-block;
+  width: 100%;
+}
+.logo {
+  width: 0.53333rem;
+  height: 0.53333rem;
+  display: inline-block;
+  -webkit-border-radius: 2.66667rem;
+  overflow: hidden;
+  vertical-align: middle;
+  background-color: #f7f7f7;
+  background-size: 100%;
 }
 </style>

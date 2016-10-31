@@ -28,7 +28,7 @@
         <span :class="{'ui-tag': processType == 1}">对阵全览</sapn>
       </div> -->
       <div class="ui-flex-1" @click="switchItem('competitonTypeNav', 'processTypeNav', 1)">
-        <span :class="{'ui-tag': processType == 1}">1/4决赛</sapn>
+        <span :class="{'ui-tag': processType == 1}">预选赛</sapn>
       </div>
       <div class="ui-flex-1" @click="switchItem('competitonTypeNav', 'processTypeNav', 2)">
         <span :class="{'ui-tag': processType == 2}">半决赛</sapn>
@@ -86,15 +86,7 @@ export default {
         this.competitonType = 1
         switch (type) {
           case 1:
-            this.setCompetitonIntro(competitonId)
-                .then((res) => {
-                  this.hideLoading()
-                })
-                .catch((e) => {
-                  this.hideLoading()
-                  this.state = 'error'
-                  this.showTip(e.statusText)
-                })
+            this.hideLoading()
             break
           case 2:
             this.setCompetitonMember(competitonId, 1)
@@ -120,17 +112,6 @@ export default {
             break
           case 4:
             this.hideLoading()
-            // this.setCompetitonUser()
-            //     .then((res) => {
-            //       this.hideLoading()
-            //     })
-            //     .catch((e) => {
-            //       this.hideLoading()
-            //       this.state = 'error'
-            //       // if (e.code === 500) {
-            //       //   this.showTip(e.message)
-            //       // }
-            //     })
             break
         }
       // 二级导航（男单、女单、男双、女双、混双）

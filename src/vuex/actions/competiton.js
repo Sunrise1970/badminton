@@ -6,13 +6,13 @@ import {
   getCompetitonMember,
   getCompetitonAgainst,
   getCompetitonUser,
-  getAgainstDetail
+  getAgainstDetail,
+  getLotteryId
  } from '../../api/competiton'
 
 // 设置参加比赛
 export const setAttend = ({ dispatch, state }, attend) => {
   console.log('action: from client input', attend)
-  console.log('action: from client input attend.name', attend.name)
   return new Promise((resolve, reject) => {
     toAttend(attend)
     .then((res) => {
@@ -139,6 +139,25 @@ export const setAgainstDetail = ({ dispatch, state }, againstId) => {
       if (res.code === 200) {
         console.log('action-setAgainstDetail: from server return', res.data.detail)
         dispatch(types.GET_AGAINST_DETAIL, res.data.detail)
+        resolve(res)
+      } else {
+        reject(res)
+      }
+    })
+    .catch((error) => {
+      reject(error)
+    })
+  })
+}
+
+// 设置抽中id
+export const setLotteryId = ({ dispatch, state }, tel) => {
+  return new Promise((resolve, reject) => {
+    getLotteryId(tel)
+    .then((res) => {
+      res = res.json() || {}
+      if (res.code === 200) {
+        dispatch(types.GET_LOTTERY_ID, res.data)
         resolve(res)
       } else {
         reject(res)

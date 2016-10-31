@@ -8,7 +8,8 @@ const state = {
   againstList: [],
   competitonUserList: {},
   competitonType: 1,
-  againstDetail: {}
+  againstDetail: {},
+  lotteryId: ''
 }
 
 const mutations = {
@@ -55,6 +56,9 @@ const mutations = {
   },
   [types.GET_AGAINST_DETAIL] (state, againstDetail) {
     state.againstDetail = againstDetail
+  },
+  [types.GET_LOTTERY_ID] (state, lotteryId) {
+    state.lotteryId = lotteryId
   }
 }
 

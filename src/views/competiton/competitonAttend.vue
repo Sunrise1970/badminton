@@ -92,7 +92,7 @@
             报名说明
           </div>
           <p class="ui-info-txt ui-border-radius">
-            每人可以参与一或两类型比赛每人可以参与一或两类型比赛每人可以参与一或两类型比赛每人可以参与一或两类型比赛每人可以参与一或两类型比赛每人可以参与一或两类型比赛每人可以参与一或两类型比赛
+            为了让尽可能多的人参与此次活动，每人可以参与一或两类型比赛。
           </p>
         </div>
       </div>
@@ -202,7 +202,8 @@ export default {
             name: validator.trim(this.attend.name),
             card: validator.trim(this.attend.card),
             tel: validator.trim(this.attend.tel),
-            sex: this.returnSex(type, 1)
+            sex: this.returnSex(type, 1),
+            lotteryId: 0
           }],
           competitonType: this.attend.competitonType,
           competitonId: this.$route.query.competitonId
@@ -213,13 +214,15 @@ export default {
             name: validator.trim(this.attend.name),
             card: validator.trim(this.attend.card),
             tel: validator.trim(this.attend.tel),
-            sex: this.returnSex(type, 1)
+            sex: this.returnSex(type, 1),
+            lotteryId: 0
           },
           {
             name: validator.trim(this.attend.name2),
             card: validator.trim(this.attend.card2),
             tel: validator.trim(this.attend.tel2),
-            sex: this.returnSex(type, 2)
+            sex: this.returnSex(type, 2),
+            lotteryId: 0
           }],
           competitonType: this.attend.competitonType,
           competitonId: this.$route.query.competitonId
@@ -231,19 +234,24 @@ export default {
       const man = [1, 3]
       const woman = [2, 4]
       let sex
+      console.log('returnSextype···', type)
       if (man.indexOf(type) !== -1) {
         sex = 1
-      }
-      if (woman.indexOf(type) !== -1) {
+        console.log('sss')
+        return sex
+      } else if (woman.indexOf(type) !== -1) {
+        console.log('qq')
         sex = 2
+        return sex
       } else {
+        console.log('ww')
         if (user === 1) {
           sex = this.attend.sex
         } else {
           sex = this.attend.sex2
         }
+        return sex
       }
-      return sex
     }
   },
   components: {

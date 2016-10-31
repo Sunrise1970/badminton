@@ -14,7 +14,6 @@
           </div>
           <div class="ui-flex area-row2 ui-border-t">
             <div class="ui-flex-1 ui-border-l"></div>
-            <!-- 双打 -->
             <div class="ui-flex-5 ui-border-l">
               <div class="ui-transform-y">
                 <template v-for="item in part_a">
@@ -27,23 +26,8 @@
                 </template>
               </div>
             </div>
-            <!-- 单打 -->
-            <!-- <div class="ui-flex-5 ui-border-l ui-flex-center">
-              <div class="ui-avatar-lg ui-vertical-middle">
-                <span style="background-image:url(http://placehold.it/100x100)"></span>
-              </div>
-              <span class="against-name ui-border-radius">张三丰</span>
-            </div> -->
             <div class="ui-flex-2 ui-border-l ui-flex-center ui-just-end"><span class="vs">v</span></div>
             <div class="ui-flex-2 ui-border-dash-l ui-flex-center ui-just-start"><span class="vs">s</span></div>
-            <!-- 单打 -->
-            <!-- <div class="ui-flex-5 ui-border-l ui-flex-center">
-              <div class="ui-avatar-lg ui-vertical-middle">
-                <span style="background-image:url(http://placehold.it/100x100)"></span>
-              </div>
-              <span class="against-name ui-border-radius">李四端</span>
-            </div> -->
-            <!-- 双打 -->
             <div class="ui-flex-5 ui-border-l">
               <div class="ui-transform-y">
                 <template v-for="item in part_b">
@@ -84,7 +68,7 @@
         </template>
       </div>
     </div>
-    <div class="ui-common-mg-b ui-common-pd-t ui-whitespace-p">
+    <div class="ui-common-mg-b ui-common-pd-t ui-whitespace-p" v-if="againstScore && againstScore.length !== 0">
       <div class="ui-flex-between ui-common-pd-tb ui-border-b" v-for="item in againstScore">
         <div class="ui-txt-info ui-common-pd-l">第{{$index+1}}局</div>
         <div class="ui-common-pd-r">{{item}}</div>
@@ -128,7 +112,7 @@ export default {
   },
   computed: {
     win () {
-      let winner = this.againstDetail.part_a_score > this.againstDetail.part_b_score ? 'a' : 'b'
+      let winner = this.againstDetail.part_a_score > this.againstDetail.part_b_score ? 'a' : (this.againstDetail.part_a_score === this.againstDetail.part_b_score ? 'no' : 'b')
       let partA = ''
       let partB = ''
       if (this.againstDetail.part_a_user) {
@@ -143,8 +127,10 @@ export default {
       }
       if (winner === 'a') {
         return partA
-      } else {
+      } else if (winner === 'b') {
         return partB
+      } else {
+        return '敬请期待...'
       }
     },
     againstScore () {

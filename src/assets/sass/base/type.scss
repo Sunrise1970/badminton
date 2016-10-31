@@ -72,7 +72,7 @@ em{
   font-weight: bold;
 }
 .ui-info-head {
-  width: 2rem;
+  width: 2.5rem;
   height: 0.6666666666666666rem;
   margin-top: 0.6666666666666666rem;
   margin-bottom: 0.4rem;
@@ -193,4 +193,7 @@ em{
   line-height: 1.0666666666666667rem;
   text-align: center;
   color: $txt-highlight;
+}
+.ui-close {
+  color: #999;
 }

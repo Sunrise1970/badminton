@@ -30,6 +30,16 @@ export function setRouter (router) {
       name: 'competiton attend',
       title: '比赛对阵详情',
       component: (resolve) => require(['./views/competiton/components/competitonAgainstDetail.vue'], resolve)
+    },
+    '/competitonPrize': {
+      name: 'competiton prize',
+      title: '比赛奖品',
+      component: (resolve) => require(['./views/competiton/competitonPrize.vue'], resolve)
+    },
+    '/competitonRule': {
+      name: 'competiton rule',
+      title: '比赛规则',
+      component: (resolve) => require(['./views/competiton/competitonRule.vue'], resolve)
     }
   })
   // 重定向到index，防止首次运行页面空白

@@ -5,7 +5,8 @@ import {
   competitonMember,
   competitonAgainst,
   competitonUser,
-  againstDetail
+  againstDetail,
+  lotteryId
  } from '../resource'
 
 // 比赛报名
@@ -66,4 +67,12 @@ export const getAgainstDetail = (againstId) => {
     id: againstId
   }
   return againstDetail.get(option)
+}
+
+// 大转盘抽奖
+export const getLotteryId = (tel) => {
+  let option = {
+    tel: tel
+  }
+  return lotteryId.get(option)
 }

@@ -33,3 +33,6 @@ export const competitonUser = Vue.resource(hosts + '/competiton/userAgainstList'
 
 // 对阵详情
 export const againstDetail = Vue.resource(hosts + '/competiton/againstDetail')
+
+// 大转盘抽检
+export const lotteryId = Vue.resource(hosts + '/competiton/lotteryId')
