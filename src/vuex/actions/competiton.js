@@ -7,7 +7,8 @@ import {
   getCompetitonAgainst,
   getCompetitonUser,
   getAgainstDetail,
-  getLotteryId
+  getLotteryId,
+  toUserTel
  } from '../../api/competiton'
 
 // 设置参加比赛
@@ -167,4 +168,8 @@ export const setLotteryId = ({ dispatch, state }, tel) => {
       reject(error)
     })
   })
+}
+// 设置参与比赛用户手机
+export const setUserTel = ({ dispatch, state }, tel, id) => {
+  toUserTel(tel, id)
 }

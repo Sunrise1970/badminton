@@ -106,7 +106,7 @@ import validator from 'validator'
 import uiHead from '../common/head'
 
 import { validateIdCard } from '../../untils'
-import { setAttend } from '../../vuex/actions/competiton'
+import { setAttend, setUserTel } from '../../vuex/actions/competiton'
 import { showLoading, hideLoading, showTip } from '../../vuex/actions/common'
 export default {
   vuex: {
@@ -114,7 +114,8 @@ export default {
       setAttend,
       showLoading,
       hideLoading,
-      showTip
+      showTip,
+      setUserTel
     }
   },
   data () {
@@ -176,10 +177,12 @@ export default {
         }
       }
       attendObj = this.returnAttendObj(this.attend.competitonType)
-      console.log(attendObj)
+      let userTel = this.attend.tel2 !== '' ? `${this.attend.tel}_${this.attend.tel2}` : this.attend.tel
+      console.log(userTel)
       this.showLoading()
       this.setAttend(attendObj)
           .then((res) => {
+            this.setUserTel(userTel, this.$route.query.competitonId)
             this.hideLoading()
             this.showTip('恭喜您！报名成功！')
             setTimeout(() => {

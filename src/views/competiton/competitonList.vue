@@ -7,7 +7,7 @@
     </div> -->
     <div class="competiton-list ui-whitespace-m">
       <ul class="clearfix" v-if="state==='success'">
-        <li v-for="item in competitonList" v-link="{ path: '/competitonDetail', query:{ competitonId: item._id } }" class="ui-border-radius">
+        <li v-for="item in competitonList" v-link="{ path: '/competitonDetail', query:{ competitonId: item._id } }" class="ui-item-box ui-border-radius">
           <div class="ui-common-pd">
             <div class="ui-flex">
               <div class="competiton-tag ui-tag">
@@ -40,6 +40,23 @@
     </div>
     <div class="gaoxiao ui-common-mg-tb ui-whitespace-m">
       <img src="../../assets/gaoxiao_shouye.gif" class="ui-border-radius" alt="" />
+    </div>
+    <div class="ui-item-box ui-whitespace-m ui-border-radius project-intro">
+      <div class="ui-info-head">
+        项目心得
+      </div>
+      <p class="ui-text-indent">
+        一直想尝试使用vue+node+mongoose开发，心血来潮，一不小心就跳进了这个坑。
+      </p>
+      <p class="ui-common-pd-tb">
+        感兴趣的同学可以通过github获<span class="ui-gary">(跳)</span>取<span class="ui-gary">(进)</span>源<span class="ui-gary">(深)</span>码<span class="ui-gary">(坑)</span>。
+      </p>
+      <p>
+        前端：<a href="https://github.com/Sunrise1970/badminton-server">https://github.com/Sunrise1970/badminton-server</a>
+      </p>
+      <p>
+        后端：<a href="https://github.com/Sunrise1970/badminton">https://github.com/Sunrise1970/badminton</a>
+      </p>
     </div>
   </div>
 </template>
@@ -110,15 +127,15 @@ export default {
   text-align: center;
 }
 .competiton-list {
-  li {
-    box-shadow:  0 1px 3px rgba(167,167,167,.4);
-    margin-top: 0.4rem;
-    padding: 0.13333333333333333rem 0.2rem;
-    background-color: $default-bg;
-  }
   h2 {
     display: inline-block;
   }
+}
+.ui-item-box {
+  box-shadow:  0 1px 3px rgba(167,167,167,.4);
+  margin-top: 0.4rem;
+  padding: 0.13333333333333333rem 0.2rem;
+  background-color: $default-bg;
 }
 .gaoxiao img {
   display: inline-block;
@@ -133,5 +150,11 @@ export default {
   vertical-align: middle;
   background-color: #f7f7f7;
   background-size: 100%;
+}
+.ui-info-head {
+  margin-top: 0.21333333333333335rem;
+}
+.project-intro {
+  padding-bottom: 0.5333333333333333rem;
 }
 </style>

@@ -1,5 +1,6 @@
 import {
   attend,
+  userTel,
   competitonList,
   competitonIntro,
   competitonMember,
@@ -18,6 +19,16 @@ export const toAttend = (attendUserObj) => {
   }
   console.log('toAttend option: ', option)
   return attend.get(option)
+}
+
+// 用户手机
+export const toUserTel = (tel, competitonId) => {
+  let option = {
+    tel: tel,
+    competitonId: competitonId
+  }
+  console.log('toUserTel option: ', option)
+  return userTel.get(option)
 }
 
 // 比赛列表

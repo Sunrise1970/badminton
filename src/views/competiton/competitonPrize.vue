@@ -130,7 +130,8 @@ export default {
         { id: 8, name: '谢谢参与', light: false }
       ],
       show: false,
-      hide: false
+      hide: false,
+      haslottery: false
     }
   },
   computed: {
@@ -171,21 +172,25 @@ export default {
       if (!this.tel) {
         this.show = !this.show
       } else {
-        console.log('ddd')
-        this.setLotteryId(this.tel)
-            .then((res) => {
-              console.log(this.lotteryId)
-              if (res.data) {
-                if (res.data !== 'haslottery') {
-                  this.loterryStart(this.lotteryId)
+        if (!this.haslottery) {
+          this.setLotteryId(this.tel)
+              .then((res) => {
+                console.log(this.lotteryId)
+                if (res.data) {
+                  if (res.data !== 'haslottery') {
+                    this.loterryStart(this.lotteryId)
+                    this.haslottery = true
+                  } else {
+                    this.showTip('您已经抽过奖了哦！')
+                  }
                 } else {
-                  this.showTip('您已经抽过奖了哦！')
+                  this.showTip('您未参与本次比赛哦！')
+                  this.show = !this.show
                 }
-              } else {
-                this.showTip('您未参与本次比赛哦！')
-                this.show = !this.show
-              }
-            })
+              })
+        } else {
+          this.showTip('您已经抽过奖了哦！')
+        }
       }
     },
     inputTelSure () {
