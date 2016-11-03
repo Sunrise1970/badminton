@@ -180,11 +180,15 @@ export default {
       let userTel = this.attend.tel2 !== '' ? `${this.attend.tel}_${this.attend.tel2}` : this.attend.tel
       console.log(userTel)
       this.showLoading()
-      this.setAttend(attendObj)
+      this.setAttend(userTel, attendObj)
           .then((res) => {
-            this.setUserTel(userTel, this.$route.query.competitonId)
             this.hideLoading()
-            this.showTip('恭喜您！报名成功！')
+            if (res.data !== 'hasattend') {
+              this.setUserTel(userTel, this.$route.query.competitonId)
+              this.showTip('恭喜您！报名成功！')
+            } else {
+              this.showTip('你已经报了两项啦！')
+            }
             setTimeout(() => {
               this.$route.router.go({name: 'competiton detail', query: { competitonId: this.$route.query.competitonId }})
             }, 1300)

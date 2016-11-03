@@ -12,10 +12,10 @@ import {
  } from '../../api/competiton'
 
 // 设置参加比赛
-export const setAttend = ({ dispatch, state }, attend) => {
+export const setAttend = ({ dispatch, state }, tel, attend) => {
   console.log('action: from client input', attend)
   return new Promise((resolve, reject) => {
-    toAttend(attend)
+    toAttend(tel, attend)
     .then((res) => {
       res = res.json() || {}
       if (res.code === 200) {
