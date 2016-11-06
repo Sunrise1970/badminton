@@ -4,15 +4,15 @@
     <div class="ui-common-box ui-whitespace-p">
       <div class="ui-info-head">预选赛</div>
       <p class="ui-common-pd ui-border-radius ui-border-shadow ui-text-indent">
-        男单、女单、男双、女双、混双根据抽签决定对赛场次，实行单淘汰赛制(3局2胜)，每局21分（一球一分），采用每球得分制。男单、女单、男双、女双、混双各通过预选赛淘汰至2组选手进入半决赛。
+        男单、女单、男双、女双、混双根据抽签决定对赛场次，3局2胜，每局21分（一球一分），采用每球得分制。
       </p>
       <div class="ui-info-head">半决赛</div>
-      <p class="ui-common-pd ui-border-radius ui-border-shadow ui-text-center">
-        男单、女单、男双、女双、混双根据抽签决定对赛场次，实行单淘汰赛制(3局2胜)，每局21分（一球一分），采用每球得分制。最终获胜的两支队伍进入决赛。
+      <p class="ui-common-pd ui-border-radius ui-border-shadow ui-text-indent">
+        男单、女单、男双、女双、混双根据抽签决定对赛场次，3局2胜，每局21分（一球一分），采用每球得分制。
       </p>
       <div class="ui-info-head">总决赛</div>
-      <p class="ui-common-pd ui-border-radius ui-border-shadow ui-text-center">
-        男单、女单、男双、女双、混双胜出的两队决赛，实行积分赛制（3局2胜），每局21分，采用每球得分制。决出冠亚军。
+      <p class="ui-common-pd ui-border-radius ui-border-shadow ui-text-indent">
+        男单、女单、男双、女双、混双胜出的两队决赛，3局2胜，每局21分，采用每球得分制。决出冠亚季军。
       </p>
       <div class="ui-info-head">发球区域</div>
       <div class="ui-common-pd ui-border-radius ui-border-shadow ui-text-center">

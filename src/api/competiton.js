@@ -11,9 +11,10 @@ import {
  } from '../resource'
 
 // 比赛报名
-export const toAttend = (tel, attendUserObj) => {
+export const toAttend = (tel, sex, attendUserObj) => {
   let option = {
     tel: tel,
+    sex: sex,
     user: attendUserObj.user,
     competitonType: attendUserObj.competitonType,
     competitonId: attendUserObj.competitonId

@@ -27,7 +27,7 @@ export default {
     },
     time: {
       type: Number,
-      default: 1200
+      default: 2000
     },
     type: {
       type: String,
@@ -82,7 +82,7 @@ export default {
 }
 .toast {
   position: fixed;
-  min-width: 4.5rem;
+  min-width: 5.2rem;
   top: 50%;
   left: 50%;
   margin-top: -.6rem;

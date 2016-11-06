@@ -60,7 +60,7 @@
           <div class="form-label-input ui-border-b" v-if="attend.competitonType == 5">
             <label for="sex">性&emsp;&emsp;别</label>
             <select id="sex" v-model="attend.sex">
-              <option selected value="1">男</option>
+              <option value="1">男</option>
               <option value="2">女</option>
             </select>
           </div>
@@ -84,16 +84,19 @@
               <label for="sex">性&emsp;&emsp;别</label>
               <select id="sex" v-model="attend.sex2">
                 <option value="1">男</option>
-                <option selected value="2">女</option>
+                <option value="2">女</option>
               </select>
             </div>
           </template>
           <div class="ui-info-head">
             报名说明
           </div>
-          <p class="ui-info-txt ui-border-radius">
-            为了让尽可能多的人参与此次活动，每人可以参与一或两类型比赛。
-          </p>
+          <div class="ui-common-pd ui-border-radius">
+            <ul>
+              <li>1、为了让尽可能多的人参与此次活动，每人可以参与一或两类型比赛。</li>
+              <li>2、身份证号码和手机号码的用途是为参赛人员购买意外险。</li>
+            </ul>
+          </div>
         </div>
       </div>
       <input class="ui-bottom-btn ui-btn-box" type="submit" value="提交">
@@ -124,11 +127,11 @@ export default {
         name: '',
         card: '',
         tel: '',
-        sex: 1,
+        sex: '',
         name2: '',
         card2: '',
         tel2: '',
-        sex2: 2,
+        sex2: '',
         competitonType: 1,
         competitonId: ''
       }
@@ -155,7 +158,7 @@ export default {
           return
         }
       } else {
-        if ([this.attend.name, this.attend.card, this.attend.tel, this.attend.name2, this.attend.card2, this.attend.tel2].some(function (item) { return item === '' })) {
+        if ([this.attend.name, this.attend.card, this.attend.tel, this.attend.sex, this.attend.name2, this.attend.card2, this.attend.tel2, this.attend.sex2].some(function (item) { return item === '' })) {
           this.showTip('请输入完整信息')
           return
         }
@@ -175,23 +178,64 @@ export default {
           this.showTip('请输入正确的队员二手机号码')
           return
         }
+        if (this.attend.card === this.attend.card2) {
+          this.showTip('两个队员身份证号码相同')
+          return
+        }
+        if (this.attend.tel === this.attend.tel2) {
+          this.showTip('两个队员手机号码相同')
+          return
+        }
+        if (this.attend.sex === this.attend.sex2) {
+          this.showTip('两个队员的性别相同')
+          return
+        }
       }
       attendObj = this.returnAttendObj(this.attend.competitonType)
       let userTel = this.attend.tel2 !== '' ? `${this.attend.tel}_${this.attend.tel2}` : this.attend.tel
-      console.log(userTel)
+      let userSex = this.attend.sex2 !== '' ? `${this.attend.sex}_${this.attend.sex2}` : this.attend.sex
+      console.log('sex2', this.attend.sex2)
+      console.log('sex', userSex)
       this.showLoading()
-      this.setAttend(userTel, attendObj)
+      this.setAttend(userTel, userSex, attendObj)
           .then((res) => {
             this.hideLoading()
-            if (res.data !== 'hasattend') {
+            let tipText = ''
+            if (res.data === 'hasAttendTwo') {
+              tipText = (this.attend.competitonType === 1 || this.attend.competitonType === 2) ? '您已经参与了两项比赛啦！' : '至少一个队员已经参与了两项比赛啦！'
+              this.showTip(tipText)
+            } else if (res.data === 'hasAttendSame') {
+              tipText = (this.attend.competitonType === 1 || this.attend.competitonType === 2) ? '您已经参与了这项比赛啦！' : '至少一个队员已经参与了这项比赛啦！'
+              this.showTip(tipText)
+            } else if (res.data.text === 'gay') {
+              if (this.attend.competitonType === 5) {
+                tipText = '至少一个队员性别有误'
+              } else {
+                let tip = ''
+                switch (res.data.type) {
+                  case 1:
+                    tip = '男单'
+                    break
+                  case 2:
+                    tip = '女单'
+                    break
+                  case 3:
+                    tip = '男双'
+                    break
+                  case 4:
+                    tip = '女双'
+                    break
+                }
+                tipText = (this.attend.competitonType === 1 || this.attend.competitonType === 2) ? '您已经参与了' + tip + '比赛啦！' : '至少一个队员已经参与了' + tip + '比赛啦！'
+              }
+              this.showTip(tipText)
+            } else {
               this.setUserTel(userTel, this.$route.query.competitonId)
               this.showTip('恭喜您！报名成功！')
-            } else {
-              this.showTip('你已经报了两项啦！')
             }
-            setTimeout(() => {
-              this.$route.router.go({name: 'competiton detail', query: { competitonId: this.$route.query.competitonId }})
-            }, 1300)
+            // setTimeout(() => {
+            //   this.$route.router.go({name: 'competiton detail', query: { competitonId: this.$route.query.competitonId }})
+            // }, 1500)
           })
           .catch((e) => {
             this.hideLoading()
@@ -241,17 +285,15 @@ export default {
       const man = [1, 3]
       const woman = [2, 4]
       let sex
-      console.log('returnSextype···', type)
       if (man.indexOf(type) !== -1) {
+        this.attend.sex = 1
         sex = 1
-        console.log('sss')
         return sex
       } else if (woman.indexOf(type) !== -1) {
-        console.log('qq')
+        this.attend.sex = 2
         sex = 2
         return sex
       } else {
-        console.log('ww')
         if (user === 1) {
           sex = this.attend.sex
         } else {
