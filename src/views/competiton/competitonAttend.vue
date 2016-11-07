@@ -133,7 +133,8 @@ export default {
         tel2: '',
         sex2: '',
         competitonType: 1,
-        competitonId: ''
+        competitonId: '',
+        hasSubmit: false
       }
     }
   },
@@ -142,6 +143,10 @@ export default {
   attached: function () {},
   methods: {
     attendHandler: function () {
+      if (this.hasSubmit) {
+        this.showTip('你已经提交一次啦！')
+        return
+      }
       // 信息验证
       let attendObj
       if (this.attend.competitonType === 1 || this.attend.competitonType === 2) {
@@ -158,9 +163,20 @@ export default {
           return
         }
       } else {
-        if ([this.attend.name, this.attend.card, this.attend.tel, this.attend.sex, this.attend.name2, this.attend.card2, this.attend.tel2, this.attend.sex2].some(function (item) { return item === '' })) {
-          this.showTip('请输入完整信息')
-          return
+        if (this.attend.competitonType === 5) {
+          if ([this.attend.name, this.attend.card, this.attend.tel, this.attend.sex, this.attend.name2, this.attend.card2, this.attend.tel2, this.attend.sex2].some(function (item) { return item === '' })) {
+            this.showTip('请输入完整信息')
+            return
+          }
+          if (this.attend.sex === this.attend.sex2) {
+            this.showTip('两个队员的性别相同')
+            return
+          }
+        } else {
+          if ([this.attend.name, this.attend.card, this.attend.tel, this.attend.name2, this.attend.card2, this.attend.tel2].some(function (item) { return item === '' })) {
+            this.showTip('请输入完整信息')
+            return
+          }
         }
         if (!validateIdCard(this.attend.card)) {
           this.showTip('请输入正确的队员一身份证号码')
@@ -186,10 +202,6 @@ export default {
           this.showTip('两个队员手机号码相同')
           return
         }
-        if (this.attend.sex === this.attend.sex2) {
-          this.showTip('两个队员的性别相同')
-          return
-        }
       }
       attendObj = this.returnAttendObj(this.attend.competitonType)
       let userTel = this.attend.tel2 !== '' ? `${this.attend.tel}_${this.attend.tel2}` : this.attend.tel
@@ -201,7 +213,9 @@ export default {
           .then((res) => {
             this.hideLoading()
             let tipText = ''
-            if (res.data === 'hasAttendTwo') {
+            if (res.data === 'hasOver') {
+              this.showTip('此项已报名啦！赶紧报其他项吧！')
+            } else if (res.data === 'hasAttendTwo') {
               tipText = (this.attend.competitonType === 1 || this.attend.competitonType === 2) ? '您已经参与了两项比赛啦！' : '至少一个队员已经参与了两项比赛啦！'
               this.showTip(tipText)
             } else if (res.data === 'hasAttendSame') {
@@ -230,6 +244,7 @@ export default {
               }
               this.showTip(tipText)
             } else {
+              this.hasSubmit = true
               this.setUserTel(userTel, this.$route.query.competitonId)
               this.showTip('恭喜您！报名成功！')
             }
@@ -243,6 +258,7 @@ export default {
           })
     },
     selectCompetitonType: function (type) {
+      this.hasSubmit = false
       this.attend.competitonType = type
     },
     returnAttendObj: function (type) {

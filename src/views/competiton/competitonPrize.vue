@@ -60,6 +60,7 @@
           <li>1、每个奖项每人只能获得一样奖品。</li>
           <li>2、部分奖品需要抢购，若着实抢不到，可以更换等价小米商品。</li>
           <li>3、奖品图片均来自小米官网。</li>
+          <li>4、点击图片可查看奖品详情。</li>
         </ul>
       </div>
       <div class="ui-info-head">参与即可抽奖</div>
@@ -138,7 +139,7 @@
         <h2 class="ui-text-center">抽奖说明</h2>
         <ul class="ui-common-pd">
           <li>1、仅限参与比赛的人员，不包括中途弃权者。</li>
-          <li>2、比赛结束后方可抽奖，且一人有一次抽奖机会。</li>
+          <li>2、所有比赛结束后方可抽奖，且一人有一次抽奖机会。</li>
           <li>3、奖品均为一份。</li>
           <li>4、部分奖品需要抢购，若着实抢不到，可以更换等价小米商品。</li>
           <li>5、大转盘技术支持为体验设计部的镜子，设计因网站风格进行了个人调整。</li>
@@ -170,7 +171,7 @@ export default {
       tel: '',
       sum: 8, // 奖项总数
       loterry: '', // 中奖的index
-      minRotate: 5400, // 最少转动角度
+      minRotate: 2160, // 最少转动角度
       rotate: 0, // 需要转动的角度
       duration: 5, // 延迟秒数
       light: 0, // 外层闪烁点高亮
@@ -229,29 +230,30 @@ export default {
   attached: function () {},
   methods: {
     getLoteryIdFromServer () {
-      if (!this.tel) {
-        this.show = !this.show
-      } else {
-        if (!this.haslottery) {
-          this.setLotteryId(this.tel)
-              .then((res) => {
-                console.log(this.lotteryId)
-                if (res.data) {
-                  if (res.data !== 'haslottery') {
-                    this.loterryStart(this.lotteryId)
-                    this.haslottery = true
-                  } else {
-                    this.showTip('您已经抽过奖了哦！')
-                  }
-                } else {
-                  this.showTip('您未参与本次比赛哦！')
-                  this.show = !this.show
-                }
-              })
-        } else {
-          this.showTip('您已经抽过奖了哦！')
-        }
-      }
+      this.showTip('所有比赛结束后方可抽奖哦！')
+      // if (!this.tel) {
+      //   this.show = !this.show
+      // } else {
+      //   if (!this.haslottery) {
+      //     this.setLotteryId(this.tel)
+      //         .then((res) => {
+      //           console.log(this.lotteryId)
+      //           if (res.data) {
+      //             if (res.data !== 'haslottery') {
+      //               this.loterryStart(this.lotteryId)
+      //               this.haslottery = true
+      //             } else {
+      //               this.showTip('您已经抽过奖了哦！')
+      //             }
+      //           } else {
+      //             this.showTip('您未参与本次比赛哦！')
+      //             this.show = !this.show
+      //           }
+      //         })
+      //   } else {
+      //     this.showTip('您已经抽过奖了哦！')
+      //   }
+      // }
     },
     inputTelSure () {
       this.show = !this.show
