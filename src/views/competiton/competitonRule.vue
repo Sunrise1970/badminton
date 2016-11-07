@@ -12,7 +12,7 @@
       </p>
       <div class="ui-info-head">总决赛</div>
       <p class="ui-common-pd ui-border-radius ui-border-shadow ui-text-indent">
-        男单、女单、男双、女双、混双胜出的两队决赛，3局2胜，每局21分，采用每球得分制。决出冠亚季军。
+        男单、女单、男双、女双、混双胜出的三队决赛，3局2胜，每局21分（一球一分），采用每球得分制。决出冠亚季军。
       </p>
       <div class="ui-info-head">发球区域</div>
       <div class="ui-common-pd ui-border-radius ui-border-shadow ui-text-center">

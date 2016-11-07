@@ -1,7 +1,7 @@
 <template>
   <div class="head ui-nav-box pdb" v-if="rebackHead">
     <!-- <a v-link="{ path: '/index', activeClass: 'active-border' }">活动</a> -->
-    <a v-link="{ path: '/competitonList', activeClass: 'active-border' }">比赛</a>
+    <a v-link="{ path: '/competitonList', activeClass: 'active-border' }">铂涛互联网羽联争霸赛</a>
   </div>
   <div class="reback-head clearfix ui-nav-box" v-if="!rebackHead">
     <i @click="rebackHandler" class="iconfont ui-icon-return"></i> {{title}}

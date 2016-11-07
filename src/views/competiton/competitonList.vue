@@ -46,16 +46,16 @@
         项目心得
       </div>
       <p class="ui-text-indent">
-        一直想尝试使用vue+node+mongoose开发，心血来潮，一不小心就跳进了这个坑。
+        一直想尝试使用vue+node+mongoose开发，心血来潮，一不小心就跳进了这个坑。感谢各位教练、敏敏、镜子、纸黄、小马哥、小鹏等小伙伴的热心解答！
       </p>
       <p class="ui-common-pd-tb">
         感兴趣的同学可以通过github获<span class="ui-gary">(跳)</span>取<span class="ui-gary">(进)</span>源<span class="ui-gary">(深)</span>码<span class="ui-gary">(坑)</span>。
       </p>
       <p>
-        前端：<a href="https://github.com/Sunrise1970/badminton-server">https://github.com/Sunrise1970/badminton-server</a>
+        前端：<a href="https://github.com/Sunrise1970/badminton">https://github.com/Sunrise1970/badminton</a>
       </p>
       <p>
-        后端：<a href="https://github.com/Sunrise1970/badminton">https://github.com/Sunrise1970/badminton</a>
+        后端：<a href="https://github.com/Sunrise1970/badminton-server">https://github.com/Sunrise1970/badminton-server</a>
       </p>
     </div>
   </div>

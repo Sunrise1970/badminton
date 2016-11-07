@@ -2,7 +2,7 @@
   <div>
     <ui-head title="报名"></ui-head>
     <form v-on:submit.prevent="attendHandler">
-      <div class="ui-common-box">
+      <div class="ui-common-box attend-wrap">
         <div class="ui-common-mg-b ui-common-pd-t ui-whitespace-p">
           <div class="ui-info-head ui-common-mg-t0">
             比赛类型
@@ -93,7 +93,7 @@
           </div>
           <div class="ui-common-pd ui-border-radius">
             <ul>
-              <li>1、为了让尽可能多的人参与此次活动，每人可以参与一或两类型比赛。</li>
+              <li>1、为了让尽可能多的人参与此次活动，每人最多能参与两个项目。</li>
               <li>2、身份证号码和手机号码的用途是为参赛人员购买意外险。</li>
             </ul>
           </div>
@@ -206,8 +206,6 @@ export default {
       attendObj = this.returnAttendObj(this.attend.competitonType)
       let userTel = this.attend.tel2 !== '' ? `${this.attend.tel}_${this.attend.tel2}` : this.attend.tel
       let userSex = this.attend.sex2 !== '' ? `${this.attend.sex}_${this.attend.sex2}` : this.attend.sex
-      console.log('sex2', this.attend.sex2)
-      console.log('sex', userSex)
       this.showLoading()
       this.setAttend(userTel, userSex, attendObj)
           .then((res) => {
@@ -248,13 +246,13 @@ export default {
               this.setUserTel(userTel, this.$route.query.competitonId)
               this.showTip('恭喜您！报名成功！')
             }
-            // setTimeout(() => {
-            //   this.$route.router.go({name: 'competiton detail', query: { competitonId: this.$route.query.competitonId }})
-            // }, 1500)
+            setTimeout(() => {
+              this.$route.router.go({name: 'competiton detail', query: { competitonId: this.$route.query.competitonId }})
+            }, 1500)
           })
           .catch((e) => {
             this.hideLoading()
-            this.showTip(e.statusText)
+            this.showTip('网络不稳定，请稍后再试')
           })
     },
     selectCompetitonType: function (type) {
@@ -326,6 +324,9 @@ export default {
 </script>
 
 <style lang="scss">
+.attend-wrap {
+  padding-bottom: 1.6rem;
+}
 .icon-zhifudanxuanxuanzhong {
   color: #86c40d;
 }

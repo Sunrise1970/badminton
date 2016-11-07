@@ -98,4 +98,7 @@ export default {
   .info-attention li {
     padding-bottom: 0.18666666666666668rem;
   }
+  .ui-btn-box {
+    border-radius: 0;
+  }
 </style>
