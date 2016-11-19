@@ -39,3 +39,9 @@ export const GET_AGAINST_DETAIL = 'GET_AGAINST_DETAIL'
 
 // 大转盘抽奖id
 export const GET_LOTTERY_ID = 'GET_LOTTERY_ID'
+
+// 中奖名单
+export const GET_LOTTERY_LIST = 'GET_LOTTERY_LIST'
+
+// 中奖名单获取中奖名单失败
+export const GET_LOTTERY_LIST_FAILURE = 'GET_LOTTERY_LIST_FAILURE'

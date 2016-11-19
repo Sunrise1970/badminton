@@ -29,7 +29,7 @@
                   <img src="../../assets/planote-logo.png" class="logo" alt="" /> {{item.company}}
               </div>
               <div>
-                <span class="ui-txt-highlight">比赛{{item.competitonState}}</span>
+                <span class="ui-txt-highlight">比赛{{item.competitonState}}</span> &nbsp;&nbsp;<span class="ui-tag">报名入口</span>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
         项目心得
       </div>
       <p class="ui-text-indent">
-        一直想尝试使用vue+node+mongoose开发，心血来潮，一不小心就跳进了这个坑。感谢各位教练、敏敏、镜子、纸黄、小马哥、小鹏等小伙伴的热心解答！
+        一直想尝试使用vue+node+mongoose开发，心血来潮，一不小心就跳进了这个坑。感谢教练、敏敏、镜子、纸黄、小马哥、小鹏等小伙伴的热心解答！
       </p>
       <p class="ui-common-pd-tb">
         感兴趣的同学可以通过github获<span class="ui-gary">(跳)</span>取<span class="ui-gary">(进)</span>源<span class="ui-gary">(深)</span>码<span class="ui-gary">(坑)</span>。
@@ -121,6 +121,9 @@ export default {
 
 <style lang="scss">
 @import "../../assets/sass/base/variable";
+.entry {
+
+}
 .competiton-nav {
   height: 1.0666666666666667rem;
   line-height: 1.0666666666666667rem;

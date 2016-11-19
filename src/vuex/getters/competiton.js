@@ -26,3 +26,6 @@ export const againstDetail = () => {
 export const lotteryId = () => {
   return competiton.lotteryId
 }
+export const lotteryList = () => {
+  return competiton.lotteryList
+}

@@ -325,7 +325,7 @@ export default {
 
 <style lang="scss">
 .attend-wrap {
-  padding-bottom: 1.6rem;
+  padding-bottom: 4rem;
 }
 .icon-zhifudanxuanxuanzhong {
   color: #86c40d;

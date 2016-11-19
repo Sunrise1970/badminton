@@ -5,7 +5,7 @@
           <li class="ui-border-tb ui-common-mg-b ui-common-pd" v-for="item in list" v-link="{ path: '/competitonAgainstDetail', query:{ competitonDetailId: item._id } }">
               <div class="ui-common-pd-tb ui-border-dash-b">
                 <span class="ui-txt-highlight" v-bind:class="{ 'ui-close': item.close }" >{{item.competitonState}}</span>
-                &emsp;<em> {{item.competiton_area}} </em>号场 / 第<em> {{item.competiton_order}} </em>场&emsp;裁判： <em>{{item.judgment}}</em>
+                &emsp;<em> {{item.competiton_area}} </em>号场 / 第<em> {{item.competiton_order}} </em>场&emsp;<em>{{item.competitonDate}}</em>
               </div>
               <div class="ui-common-pd-tb ui-flex-center ui-text-center">
                 <div class="ui-flex-1">
@@ -43,6 +43,7 @@
 
 <script>
 import { againstList } from '../../../vuex/getters/competiton'
+import { getDateFormat } from '../../../untils'
 export default {
   vuex: {
     getters: {
@@ -65,6 +66,7 @@ export default {
       return this.againstList.map((item) => {
         item.competitonState = (item.state === 1) ? '未开始' : ((item.state === 2) ? '进行中' : '已结束')
         item.user_bg = item.competiton_img ? `background-image:url(${item.competiton_img})` : ''
+        item.competitonDate = getDateFormat(item.competiton_date) ? getDateFormat(item.competiton_date, 'yyyy-mm-dd h:MM:ss') : ''
         if (item.state === 3) {
           item.close = true
         } else {

@@ -7,7 +7,8 @@ import {
   competitonAgainst,
   competitonUser,
   againstDetail,
-  lotteryId
+  lotteryId,
+  lotteryList
  } from '../resource'
 
 // 比赛报名
@@ -88,4 +89,10 @@ export const getLotteryId = (tel) => {
     tel: tel
   }
   return lotteryId.get(option)
+}
+
+// 比赛列表
+export const getLotteryList = () => {
+  let option = {}
+  return lotteryList.get(option)
 }

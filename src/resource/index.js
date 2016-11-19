@@ -2,9 +2,8 @@ import Vue from 'vue'
 import Resource from 'vue-resource'
 
 Vue.use(Resource)
-// let hosts = 'http://127.0.0.1:3000'
-
-let hosts = 'http://www.gzhhro.com:3000'
+let hosts = 'http://127.0.0.1:3000'
+// let hosts = 'http://www.gzhhro.com:3000'
 
 // 活动列表
 export const activityList = Vue.resource(hosts + '/activity/activityList')
@@ -38,3 +37,6 @@ export const againstDetail = Vue.resource(hosts + '/competiton/againstDetail')
 
 // 大转盘抽检
 export const lotteryId = Vue.resource(hosts + '/competiton/lotteryId')
+
+// 中奖名单
+export const lotteryList = Vue.resource(hosts + '/competiton/lotteryList')

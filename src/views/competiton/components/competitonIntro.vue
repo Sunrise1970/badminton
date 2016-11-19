@@ -40,9 +40,9 @@
         </ul>
       </div>
     </div>
-    <div class="ui-bottom-btn ui-btn-box" v-link="{ path: '/competitonAttend', query:{ competitonId: competitonId } }">
+    <!-- <div class="ui-bottom-btn ui-btn-box" v-link="{ path: '/competitonAttend', query:{ competitonId: competitonId } }">
       马上报名
-    </div>
+    </div> -->
   </div>
 </template>
 

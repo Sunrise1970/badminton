@@ -8,7 +8,8 @@ import {
   getCompetitonUser,
   getAgainstDetail,
   getLotteryId,
-  toUserTel
+  toUserTel,
+  getLotteryList
  } from '../../api/competiton'
 
 // 设置参加比赛
@@ -172,4 +173,25 @@ export const setLotteryId = ({ dispatch, state }, tel) => {
 // 设置参与比赛用户手机
 export const setUserTel = ({ dispatch, state }, tel, id) => {
   toUserTel(tel, id)
+}
+
+// 设置中奖列表
+export const setLotteryList = ({ dispatch, state }) => {
+  return new Promise((resolve, reject) => {
+    getLotteryList()
+    .then((res) => {
+      res = res.json() || {}
+      if (res.code === 200) {
+        console.log('action-setLotteryList: from server return', res.data.list)
+        dispatch(types.GET_LOTTERY_LIST, res.data.list)
+        resolve(res)
+      } else {
+        reject(res)
+      }
+    })
+    .catch((error) => {
+      dispatch(types.GET_LOTTERY_LIST_FAILURE)
+      reject(error)
+    })
+  })
 }

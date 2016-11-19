@@ -14,7 +14,7 @@
         <li v-for="item in list" class="ui-border-tb ui-common-mg-b ui-common-pd" v-link="{ path: '/competitonAgainstDetail', query:{ competitonDetailId: item._id } }">
             <div class="ui-common-pd-tb ui-border-dash-b">
               <span class="ui-txt-highlight">{{item.competitonState}}</span>
-              &emsp;<em> {{item.competiton_area}} </em>号场 / 第<em> {{item.competiton_order}} </em>场&emsp;裁判： <em>{{item.judgment}}</em>
+              &emsp;<em> {{item.competiton_area}} </em>号场 / 第<em> {{item.competiton_order}} </em>场&emsp;<em>{{item.competitonDate}}</em>
             </div>
             <div class="ui-common-pd-tb ui-flex-center ui-text-center">
               <div class="ui-flex-1">
@@ -53,7 +53,7 @@
 <script>
 import validator from 'validator'
 import { setCompetitonUser } from '../../../vuex/actions/competiton'
-import { setCookie, getCookie, removeCookie } from '../../../untils'
+import { setCookie, getCookie, removeCookie, getDateFormat } from '../../../untils'
 import { competitonUserList } from '../../../vuex/getters/competiton'
 import { showLoading, hideLoading, showTip } from '../../../vuex/actions/common'
 export default {
@@ -78,6 +78,7 @@ export default {
       return this.competitonUserList.list && this.competitonUserList.list.map((item) => {
         item.competitonState = (item.state === 1) ? '进行中' : '已结束'
         item.user_bg = item.competiton_img ? `background-image:url(${item.competiton_img})` : ''
+        item.competitonDate = getDateFormat(item.competiton_date) ? getDateFormat(item.competiton_date, 'yyyy-mm-dd h:MM:ss') : ''
         return item
       })
     }

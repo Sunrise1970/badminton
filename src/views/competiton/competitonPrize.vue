@@ -107,6 +107,29 @@
         </div>
       </div>
       <div class="ui-common-mg-t ui-common-pd-t ui-border-radius ui-border-shadow con">
+        <h3>获奖名单</h3>
+        <ul class="ui-text-center">
+          <li class="ui-flex-center">
+            <div class="ui-flex-1 user-name-head">
+              姓名
+            </div>
+            <div class="ui-flex-1 user-prize-head">
+              奖品
+            </div>
+          <li>
+          <template v-for="item in lotteryList">
+          <li class="ui-flex-center ui-common-pd-tb">
+            <div class="ui-flex-1 user-name">
+              {{item.name}}
+            </div>
+            <div class="ui-flex-1 user-prize">
+              {{setLotteryName(item.lotteryId)}}
+            </div>
+          <li>
+          </template>
+        </ul>
+      </div>
+      <div class="ui-common-mg-t ui-common-pd-t ui-border-radius ui-border-shadow con">
         <h3>抽奖奖品</h3>
         <ul class="ui-text-center">
           <li>
@@ -144,7 +167,7 @@
           <li>4、部分奖品需要抢购，若着实抢不到，可以更换等价小米商品。</li>
           <li>5、大转盘技术支持为体验设计部的镜子，设计因网站风格进行了个人调整。</li>
           <li>6、奖品图片均来自小米官网。</li>
-          <li>7、若有大牛发现抽检环节有漏洞，请及时反馈，谢谢！</li>
+          <li>7、若有大牛发现抽奖环节有漏洞，请及时反馈，谢谢！</li>
         </ul>
       </div>
     </div>
@@ -154,16 +177,18 @@
 <script>
 import uiHead from '../common/head'
 import { showTip } from '../../vuex/actions/common'
-import { setLotteryId } from '../../vuex/actions/competiton'
-import { lotteryId } from '../../vuex/getters/competiton'
+import { setLotteryId, setLotteryList } from '../../vuex/actions/competiton'
+import { lotteryId, lotteryList } from '../../vuex/getters/competiton'
 export default {
   vuex: {
     actions: {
       showTip,
-      setLotteryId
+      setLotteryId,
+      setLotteryList
     },
     getters: {
-      lotteryId
+      lotteryId,
+      lotteryList
     }
   },
   data: function () {
@@ -173,7 +198,7 @@ export default {
       loterry: '', // 中奖的index
       minRotate: 2160, // 最少转动角度
       rotate: 0, // 需要转动的角度
-      duration: 5, // 延迟秒数
+      duration: 10, // 延迟秒数
       light: 0, // 外层闪烁点高亮
       showTime: '', // 叶子停留转动时间
       loterryTime: '', // 旋转时间
@@ -206,6 +231,8 @@ export default {
     }
   },
   ready: function () {
+    // 获奖名单
+    this.setLotteryList()
     // 尚未开始抽奖时，两片叶子一定时间内转动
     this.loterryTime && clearInterval(this.loterryTime)
     this.bubblesInterval && clearInterval(this.bubblesInterval)
@@ -230,30 +257,30 @@ export default {
   attached: function () {},
   methods: {
     getLoteryIdFromServer () {
-      this.showTip('所有比赛结束后方可抽奖哦！')
-      // if (!this.tel) {
-      //   this.show = !this.show
-      // } else {
-      //   if (!this.haslottery) {
-      //     this.setLotteryId(this.tel)
-      //         .then((res) => {
-      //           console.log(this.lotteryId)
-      //           if (res.data) {
-      //             if (res.data !== 'haslottery') {
-      //               this.loterryStart(this.lotteryId)
-      //               this.haslottery = true
-      //             } else {
-      //               this.showTip('您已经抽过奖了哦！')
-      //             }
-      //           } else {
-      //             this.showTip('您未参与本次比赛哦！')
-      //             this.show = !this.show
-      //           }
-      //         })
-      //   } else {
-      //     this.showTip('您已经抽过奖了哦！')
-      //   }
-      // }
+      // this.showTip('所有比赛结束后方可抽奖哦！')
+      if (!this.tel) {
+        this.show = !this.show
+      } else {
+        if (!this.haslottery) {
+          this.setLotteryId(this.tel)
+              .then((res) => {
+                console.log(this.lotteryId)
+                if (res.data) {
+                  if (res.data !== 'haslottery') {
+                    this.loterryStart(this.lotteryId)
+                    this.haslottery = true
+                  } else {
+                    this.showTip('您已经抽过奖了哦！')
+                  }
+                } else {
+                  this.showTip('您未参与本次比赛哦！')
+                  this.show = !this.show
+                }
+              })
+        } else {
+          this.showTip('您已经抽过奖了哦！')
+        }
+      }
     },
     inputTelSure () {
       this.show = !this.show
@@ -262,7 +289,7 @@ export default {
     loterryStart (id) {
       this.playing = true
       // this.loterry = Math.floor(Math.random() * this.sum) // 随机数
-      this.loterry = id // 随机数
+      this.loterry = id - 1 // 随机数
       this.rotate = this.rotate - this.rotate % 360 + this.minRotate + 360 - this.loterry * 360 / this.sum // 需要转动的角度
       this.circleStyle = `transform: rotate(${this.rotate}deg); transition-duration: ${this.duration}s` // 转盘旋转
       this.showTime && clearInterval(this.showTime)
@@ -275,11 +302,32 @@ export default {
         if (this.circle[this.loterry].name !== '谢谢参与') {
           setTimeout(() => {
             this.showTip(`恭喜您！抽中了${this.circle[this.loterry].name}`)
+            // 获奖名单
+            this.setLotteryList()
           }, 500)
         } else {
           this.showTip(this.circle[this.loterry].name)
         }
       }, this.duration * 1000)
+    },
+    setLotteryName (id) {
+      console.log(id)
+      var name = ''
+      switch (id) {
+        case 1:
+          name = '随身杯'
+          break
+        case 3:
+          name = '鼠标垫'
+          break
+        case 5:
+          name = '手机支架'
+          break
+        case 7:
+          name = '防滑支架'
+          break
+      }
+      return name
     }
   },
   components: {
@@ -293,7 +341,7 @@ export default {
   background-color: #fff;
 }
 .con h3 {
-  width: 1.3333333333333333rem;
+  width: 2.3333333333333333rem;
   margin-bottom: 0.13333333333333333rem;
   padding-bottom: 0.13333333333333333rem;
   text-align: center;
@@ -790,4 +838,9 @@ mark.white {
     }
 }
 // 大转盘样式 end
+.user-name-head,.user-prize-head {
+  font-weight: bolder;
+  color: #86c40d;
+  @include font(14px);
+}
 </style>
