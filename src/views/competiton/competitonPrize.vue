@@ -106,7 +106,7 @@
             </div>
         </div>
       </div>
-      <div class="ui-common-mg-t ui-common-pd-t ui-border-radius ui-border-shadow con">
+      <div class="ui-common-mg-t ui-common-pd-t ui-border-radius ui-border-shadow con" v-if="lotteryList.length !== 0">
         <h3>获奖名单</h3>
         <ul class="ui-text-center">
           <li class="ui-flex-center">
@@ -839,7 +839,6 @@ mark.white {
 }
 // 大转盘样式 end
 .user-name-head,.user-prize-head {
-  font-weight: bolder;
   color: #86c40d;
   @include font(14px);
 }
